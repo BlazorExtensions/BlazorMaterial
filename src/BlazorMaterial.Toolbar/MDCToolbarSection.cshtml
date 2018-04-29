@@ -1,0 +1,13 @@
+@inherits MDCToolbarSectionComponent
+
+<section class="@ClassString">
+    @if (!string.IsNullOrWhiteSpace(Icon))
+    {
+        <button onclick=@OnIconClick class="material-icons mdc-toolbar__menu-icon">@Icon</button>
+    }
+    @if (!string.IsNullOrWhiteSpace(Title))
+    {
+        <span class="mdc-toolbar__title">@Title</span>
+    }
+    @ChildContent
+</section>

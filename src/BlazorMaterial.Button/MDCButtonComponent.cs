@@ -49,7 +49,6 @@ namespace BlazorMaterial
                 RegisteredFunction.Invoke<bool>(ADD_RIPPLE_FUNCTION);
                 this._rippleTimer.Dispose();
             }, null, 500, Timeout.Infinite);
-            
         }
     }
 }

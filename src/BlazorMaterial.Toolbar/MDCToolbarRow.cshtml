@@ -1,0 +1,9 @@
+@using Microsoft.AspNetCore.Blazor;
+
+<div class="mdc-toolbar__row">
+    @ChildContent
+</div>
+
+@functions {
+    public RenderFragment ChildContent { get; set; }
+}

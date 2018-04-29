@@ -23,10 +23,20 @@
 
   <ItemGroup>
     <None Include="Pages\ButtonsDemo.cshtml" />
+    <None Include="Pages\ToolbarDemo.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\BlazorMaterial.Button\BlazorMaterial.Button.csproj" />
+    <ProjectReference Include="..\..\src\BlazorMaterial.Toolbar\BlazorMaterial.Toolbar.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Pages\ToolbarDemo.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\ToolbarDemo.cshtml" />
   </ItemGroup>
 
 </Project>
