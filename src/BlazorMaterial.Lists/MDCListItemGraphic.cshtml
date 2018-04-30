@@ -1,0 +1,15 @@
+<span class="mdc-list-item__graphic">
+    @if (Type == MDCListItemGraphicType.Image)
+    {
+        <img src="@Graphic" />
+    }
+    else
+    {
+        <i class="material-icons" aria-hidden="true">@Graphic</i>
+    }
+</span>
+
+@functions{
+    public MDCListItemGraphicType Type { get; set; }
+    public string Graphic { get; set; }
+}

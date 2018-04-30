@@ -1,0 +1,28 @@
+@using Microsoft.AspNetCore.Blazor;
+
+@switch (Type)
+{
+    case MDCListItemMetaType.Icon:
+        <a href=@Href class="mdc-list-item__meta material-icons"
+           aria-label=@Title title=@Title
+           onclick=@OnClick>
+            @Source
+        </a>
+        break;
+    case MDCListItemMetaType.Image:
+        <a href=@Href class="mdc-list-item__meta"
+           aria-label=@Title title=@Title
+           onclick=@OnClick>
+            <img src=@Source />
+        </a>
+        break;
+}
+
+@functions
+{
+    public MDCListItemMetaType Type { get; set; }
+    public string Title { get; set; }
+    public string Source { get; set; }
+    public string Href { get; set; }
+    public Action<UIMouseEventArgs> OnClick { get; set; }
+}

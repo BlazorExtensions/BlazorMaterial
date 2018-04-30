@@ -1,16 +1,45 @@
 @implements ILayoutComponent
+@implements IDisposable
+@inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
 
-<div class="container-fluid mdc-typography">
-    <div class="row">
-        <div class="col-sm-3">
-            <NavMenu />
-        </div>
-        <div class="col-sm-9">
-            @Body
-        </div>
-    </div>
+<div class="mdc-typography">
+    <MDCToolbar Style=@MDCToolbarStyle.Fixed>
+        <MDCToolbarRow>
+            <MDCToolbarSection Title="Material Components Catalog"
+                               Icon=@Icon Alignment=@MDCToolbarSectionAlignment.Start OnIconClick=@{ _ => UriHelper.NavigateTo("/") } />
+        </MDCToolbarRow>
+    </MDCToolbar>
+    <div class="mdc-toolbar-fixed-adjust"></div>
+    @Body
 </div>
 
 @functions {
+    private const string DEFAULT_ICON = "/images/ic_component_24px_white.svg";
+    private const string BACK_ICON = "arrow_back";
+
     public RenderFragment Body { get; set; }
+    public string Icon { get; set; } = DEFAULT_ICON;
+
+    protected override void OnInit()
+    {
+        UriHelper.OnLocationChanged += OnLocationChanges;
+    }
+
+    private void OnLocationChanges(object sender, string location)
+    {
+        if (location == "/")
+        {
+            Icon = DEFAULT_ICON;
+        }
+        else
+        {
+            Icon = BACK_ICON;
+        }
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        UriHelper.OnLocationChanged -= OnLocationChanges;
+    }
 }

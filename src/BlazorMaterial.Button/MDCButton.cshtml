@@ -2,13 +2,13 @@
 
 @if (this.Type == MDCButtonType.Anchor)
 {
-    <a data-mdc-auto-init="MDCRipple" class=@ClassString onmousedown=@OnMouseDown onmouseup=@OnMouseUp onkeyup=@OnKeyUp onkeydown=@OnKeyDown onkeypress=@OnKeyPress disabled=@Disabled onclick=@OnClick href=@HRef>
+    <a class=@ClassString onmousedown=@OnMouseDown onmouseup=@OnMouseUp onkeyup=@OnKeyUp onkeydown=@OnKeyDown onkeypress=@OnKeyPress disabled=@Disabled onclick=@OnClick href=@HRef>
         @ChildContent
     </a>
 }
 else
 {
-    <button data-mdc-auto-init="MDCRipple" class=@ClassString style=@Style onmousedown=@OnMouseDown onmouseup=@OnMouseUp onkeyup=@OnKeyUp onkeydown=@OnKeyDown onkeypress=@OnKeyPress disabled=@Disabled onclick=@OnClick>
+    <button class=@ClassString style=@Style onmousedown=@OnMouseDown onmouseup=@OnMouseUp onkeyup=@OnKeyUp onkeydown=@OnKeyDown onkeypress=@OnKeyPress disabled=@Disabled onclick=@OnClick>
         @ChildContent
     </button>
 }

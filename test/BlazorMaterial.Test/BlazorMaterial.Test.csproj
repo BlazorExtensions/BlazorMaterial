@@ -23,12 +23,16 @@
 
   <ItemGroup>
     <None Include="Pages\ButtonsDemo.cshtml" />
+    <None Include="Pages\ListsDemo.cshtml" />
     <None Include="Pages\ToolbarDemo.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\BlazorMaterial.Button\BlazorMaterial.Button.csproj" />
+    <ProjectReference Include="..\..\src\BlazorMaterial.Lists\BlazorMaterial.Lists.csproj" />
+    <ProjectReference Include="..\..\src\BlazorMaterial.Theme\BlazorMaterial.Theme.csproj" />
     <ProjectReference Include="..\..\src\BlazorMaterial.Toolbar\BlazorMaterial.Toolbar.csproj" />
+    <ProjectReference Include="..\..\src\BlazorMaterial.Typography\BlazorMaterial.Typography.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +41,14 @@
 
   <ItemGroup>
     <Content Remove="Pages\ToolbarDemo.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Pages\ListsDemo.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\ListsDemo.cshtml" />
   </ItemGroup>
 
 </Project>

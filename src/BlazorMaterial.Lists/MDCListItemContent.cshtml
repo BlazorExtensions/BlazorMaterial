@@ -1,0 +1,12 @@
+<span class="mdc-list-item__text">
+    @PrimaryText
+    @if (!string.IsNullOrWhiteSpace(SecondaryText))
+    {
+        <span class="mdc-list-item__secondary-text">@SecondaryText</span>
+    }
+</span>
+
+@functions{
+    public string PrimaryText { get; set; }
+    public string SecondaryText { get; set; }
+}

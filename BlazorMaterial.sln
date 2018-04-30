@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMaterial.Theme", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMaterial.Typography", "src\BlazorMaterial.Typography\BlazorMaterial.Typography.csproj", "{36B270CD-1DAD-4361-9BE8-C3D966FDC929}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMaterial.Lists", "src\BlazorMaterial.Lists\BlazorMaterial.Lists.csproj", "{516B0D18-B688-44AF-B288-92351DC11429}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +117,18 @@ Global
 		{36B270CD-1DAD-4361-9BE8-C3D966FDC929}.Release|x64.Build.0 = Release|Any CPU
 		{36B270CD-1DAD-4361-9BE8-C3D966FDC929}.Release|x86.ActiveCfg = Release|Any CPU
 		{36B270CD-1DAD-4361-9BE8-C3D966FDC929}.Release|x86.Build.0 = Release|Any CPU
+		{516B0D18-B688-44AF-B288-92351DC11429}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{516B0D18-B688-44AF-B288-92351DC11429}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{516B0D18-B688-44AF-B288-92351DC11429}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{516B0D18-B688-44AF-B288-92351DC11429}.Debug|x64.Build.0 = Debug|Any CPU
+		{516B0D18-B688-44AF-B288-92351DC11429}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{516B0D18-B688-44AF-B288-92351DC11429}.Debug|x86.Build.0 = Debug|Any CPU
+		{516B0D18-B688-44AF-B288-92351DC11429}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{516B0D18-B688-44AF-B288-92351DC11429}.Release|Any CPU.Build.0 = Release|Any CPU
+		{516B0D18-B688-44AF-B288-92351DC11429}.Release|x64.ActiveCfg = Release|Any CPU
+		{516B0D18-B688-44AF-B288-92351DC11429}.Release|x64.Build.0 = Release|Any CPU
+		{516B0D18-B688-44AF-B288-92351DC11429}.Release|x86.ActiveCfg = Release|Any CPU
+		{516B0D18-B688-44AF-B288-92351DC11429}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -127,6 +141,7 @@ Global
 		{AE7352ED-41BE-406D-8EC3-F199D87AD00A} = {3FB2A779-0CF7-4014-AFF3-AF1F1A199AB5}
 		{0AF63B13-6D3A-4BF4-9B57-614B35399D80} = {3FB2A779-0CF7-4014-AFF3-AF1F1A199AB5}
 		{36B270CD-1DAD-4361-9BE8-C3D966FDC929} = {3FB2A779-0CF7-4014-AFF3-AF1F1A199AB5}
+		{516B0D18-B688-44AF-B288-92351DC11429} = {3FB2A779-0CF7-4014-AFF3-AF1F1A199AB5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {403C0648-0E6D-4B0E-8B5E-A61BEAB5F530}
