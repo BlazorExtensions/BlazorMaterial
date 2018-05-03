@@ -1,4 +1,4 @@
-@implements ILayoutComponent
+@inherits BlazorLayoutComponent
 @implements IDisposable
 @inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
 
@@ -6,18 +6,18 @@
     <MDCToolbar Style=@MDCToolbarStyle.Fixed>
         <MDCToolbarRow>
             <MDCToolbarSection Title="Material Components Catalog"
-                               Icon=@Icon Alignment=@MDCToolbarSectionAlignment.Start OnIconClick=@{ _ => UriHelper.NavigateTo("/") } />
+                               Icon=@Icon Alignment=@MDCToolbarSectionAlignment.Start OnIconClick=@{ _ => UriHelper.NavigateTo("/")}/>
         </MDCToolbarRow>
     </MDCToolbar>
-    <div class="mdc-toolbar-fixed-adjust"></div>
-    @Body
+    <main class="mdc-toolbar-fixed-adjust">
+        @Body
+    </main>
 </div>
 
 @functions {
     private const string DEFAULT_ICON = "/images/ic_component_24px_white.svg";
     private const string BACK_ICON = "arrow_back";
 
-    public RenderFragment Body { get; set; }
     public string Icon { get; set; } = DEFAULT_ICON;
 
     protected override void OnInit()
@@ -27,13 +27,14 @@
 
     private void OnLocationChanges(object sender, string location)
     {
-        if (location == "/")
+        var path = UriHelper.ToBaseRelativePath(UriHelper.GetBaseUriPrefix(), location);
+        if (path != "/")
         {
-            Icon = DEFAULT_ICON;
+            Icon = BACK_ICON;
         }
         else
         {
-            Icon = BACK_ICON;
+            Icon = DEFAULT_ICON;
         }
         StateHasChanged();
     }

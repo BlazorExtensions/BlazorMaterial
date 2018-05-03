@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Blazor;
 using Microsoft.AspNetCore.Blazor.Browser.Interop;
 using Microsoft.AspNetCore.Blazor.Components;
 using System;
-using System.Threading;
 
 namespace BlazorMaterial
 {
@@ -10,24 +9,38 @@ namespace BlazorMaterial
     {
         private const string ADD_RIPPLE_FUNCTION = "BlazorMaterial.AddRipple";
         private static readonly ClassBuilder<MDCButtonComponent> _classNameBuilder;
-        public MDCButtonType Type { get; set; }
-        public MDCButtonStyle Style { get; set; }
-        public Action<UIMouseEventArgs> OnClick { get; set; }
-        public Action<UIMouseEventArgs> OnMouseUp { get; set; }
-        public Action<UIMouseEventArgs> OnMouseDown { get; set; }
-        public Action<UIKeyboardEventArgs> OnKeyPress { get; set; }
-        public Action<UIKeyboardEventArgs> OnKeyDown { get; set; }
-        public Action<UIKeyboardEventArgs> OnKeyUp { get; set; }
-        public string Icon { get; set; }
-        public bool Disabled { get; set; }
-        public bool Dense { get; set; }
-        public string HRef { get; set; }
+        [Parameter]
+        protected MDCButtonType Type { get; set; }
+        [Parameter]
+        protected MDCButtonStyle Style { get; set; }
+        [Parameter]
+        protected Action<UIMouseEventArgs> OnClick { get; set; }
+        [Parameter]
+        protected Action<UIMouseEventArgs> OnMouseUp { get; set; }
+        [Parameter]
+        protected Action<UIMouseEventArgs> OnMouseDown { get; set; }
+        [Parameter]
+        protected Action<UIKeyboardEventArgs> OnKeyPress { get; set; }
+        [Parameter]
+        protected Action<UIKeyboardEventArgs> OnKeyDown { get; set; }
+        [Parameter]
+        protected Action<UIKeyboardEventArgs> OnKeyUp { get; set; }
+        [Parameter]
+        protected string Icon { get; set; }
+        [Parameter]
+        protected bool Disabled { get; set; }
+        [Parameter]
+        protected bool Dense { get; set; }
+        [Parameter]
+        protected string HRef { get; set; }
 
-        public RenderFragment ChildContent { get; set; }
+        [Parameter]
+        protected RenderFragment ChildContent { get; set; }
 
         protected string ClassString { get; private set; }
 
-        private Timer _rippleTimer;
+        protected ElementRef _MDCButton;
+        private bool _isFirstRender = true;
 
         static MDCButtonComponent()
         {
@@ -42,13 +55,13 @@ namespace BlazorMaterial
             this.ClassString = _classNameBuilder.Build(this);
         }
 
-        protected void AddRipple()
+        protected override void OnAfterRender()
         {
-            // Hack: Remove once the OnRendered event is published.
-            this._rippleTimer = new Timer(_ => {
-                RegisteredFunction.Invoke<bool>(ADD_RIPPLE_FUNCTION);
-                this._rippleTimer.Dispose();
-            }, null, 500, Timeout.Infinite);
+            if (this._isFirstRender)
+            {
+                this._isFirstRender = false;
+                RegisteredFunction.Invoke<bool>(ADD_RIPPLE_FUNCTION, this._MDCButton);
+            }
         }
     }
 }

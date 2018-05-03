@@ -1,8 +1,11 @@
 @using Microsoft.AspNetCore.Blazor;
+@using Microsoft.AspNetCore.Blazor.Components;
 
 <button onclick=@OnClick class="material-icons mdc-toolbar__icon">@Icon</button>
 
 @functions{
-    public string Icon { get; set; }
-    public Action<UIMouseEventArgs> OnClick { get; set; }
+    [Parameter]
+    private string Icon { get; set; }
+    [Parameter]
+    private Action<UIMouseEventArgs> OnClick { get; set; }
 }

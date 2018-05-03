@@ -6,12 +6,16 @@ namespace BlazorMaterial
     public class MDCListComponent : BlazorComponent
     {
         private static readonly ClassBuilder<MDCListComponent> _classNameBuilder;
-        public bool NonInteractive { get; set; }
-        public bool Dense { get; set; }
-        public bool AvatarList { get; set; }
-        public bool TwoLine { get; set; }
-
-        public RenderFragment ChildContent { get; set; }
+        [Parameter]
+        protected bool NonInteractive { get; set; }
+        [Parameter]
+        protected bool Dense { get; set; }
+        [Parameter]
+        protected bool AvatarList { get; set; }
+        [Parameter]
+        protected bool TwoLine { get; set; }
+        [Parameter]
+        protected RenderFragment ChildContent { get; set; }
 
         protected string ClassString { get; private set; }
 

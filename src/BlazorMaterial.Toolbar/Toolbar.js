@@ -1,4 +1,4 @@
-Blazor.registerFunction('BlazorMaterial.Toolbar.AttachTo', function (message) {
-  mdc.toolbar.MDCToolbar.attachTo(document.querySelector('.mdc-toolbar'));
+Blazor.registerFunction('BlazorMaterial.Toolbar.AttachTo', function (toolbar) {
+  mdc.toolbar.MDCToolbar.attachTo(toolbar);
   return true;
 });

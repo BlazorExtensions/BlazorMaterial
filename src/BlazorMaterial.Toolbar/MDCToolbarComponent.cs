@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Blazor;
 using Microsoft.AspNetCore.Blazor.Browser.Interop;
 using Microsoft.AspNetCore.Blazor.Components;
-using System.Threading;
 
 namespace BlazorMaterial
 {
@@ -9,13 +8,17 @@ namespace BlazorMaterial
     {
         private const string ATTACH_FUNCTION = "BlazorMaterial.Toolbar.AttachTo";
         private static readonly ClassBuilder<MDCToolbarComponent> _classNameBuilder;
-        public MDCToolbarStyle Style { get; set; }        
 
-        public RenderFragment ChildContent { get; set; }
+        [Parameter]
+        protected MDCToolbarStyle Style { get; set; }        
+
+        [Parameter]
+        protected RenderFragment ChildContent { get; set; }
 
         protected string ClassString { get; set; }
 
-        private Timer _attachTimer;
+        protected ElementRef _MDCToolbar;
+        private bool _isFirstRender = true;
 
         static MDCToolbarComponent()
         {
@@ -31,13 +34,13 @@ namespace BlazorMaterial
             this.ClassString = _classNameBuilder.Build(this);
         }
 
-        protected void AttachTo()
+        protected override void OnAfterRender()
         {
-            // Hack: Remove once the OnRendered event is published.
-            this._attachTimer = new Timer(_ => {
-                RegisteredFunction.Invoke<bool>(ATTACH_FUNCTION);
-                this._attachTimer.Dispose();
-            }, null, 500, Timeout.Infinite);
+            if (this._isFirstRender)
+            {
+                this._isFirstRender = false;
+                RegisteredFunction.Invoke<bool>(ATTACH_FUNCTION, this._MDCToolbar);
+            }
         }
     }
 }

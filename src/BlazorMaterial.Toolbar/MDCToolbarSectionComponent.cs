@@ -2,18 +2,24 @@ using Microsoft.AspNetCore.Blazor;
 using Microsoft.AspNetCore.Blazor.Components;
 using System;
 
-namespace BlazorMaterial.Toolbar
+namespace BlazorMaterial
 {
     public class MDCToolbarSectionComponent : BlazorComponent
     {
         private static readonly ClassBuilder<MDCToolbarSectionComponent> _classNameBuilder;
 
-        public MDCToolbarSectionAlignment Alignment { get; set; }
-        public RenderFragment ChildContent { get; set; }
-        public bool ShrinkToFit { get; set; }
-        public string Icon { get; set; }
-        public string Title { get; set; }
-        public Action<UIMouseEventArgs> OnIconClick { get; set; }
+        [Parameter]
+        protected MDCToolbarSectionAlignment Alignment { get; set; }
+        [Parameter]
+        protected RenderFragment ChildContent { get; set; }
+        [Parameter]
+        protected bool ShrinkToFit { get; set; }
+        [Parameter]
+        protected string Icon { get; set; }
+        [Parameter]
+        protected string Title { get; set; }
+        [Parameter]
+        protected Action<UIMouseEventArgs> OnIconClick { get; set; }
 
         protected string ClassString { get; set; }
 
