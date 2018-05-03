@@ -1,8 +1,688 @@
 @page "/list"
+@inject AppState AppState
 
-<MDCList TwoLine="true">
-    <MDCListItem Type=@MDCListItemType.Anchor Href="/button">
-        <MDCListItemGraphic Type=@MDCListItemGraphicType.Image Graphic="/images/ic_button_24px.svg" />
-        <MDCListItemContent PrimaryText="Button" SecondaryText="Raised and flat buttons" />
-    </MDCListItem>
-</MDCList>
+<section class="hero">
+    <div class="demo-list demo-list--with-avatars">
+        <MDCList TwoLine="true" AvatarList="true">
+            <MDCListItem>
+                <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon Graphic="folder" />
+                <MDCListItemContent PrimaryText="Photos" SecondaryText="Jan 9, 2014" />
+                <MDCListItemMeta Type="@MDCListItemMetaType.Icon" Source="info" Title="More info" />
+            </MDCListItem>
+            <MDCListItem>
+                <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon Graphic="folder" />
+                <MDCListItemContent PrimaryText="Photos" SecondaryText="Jan 9, 2014" />
+                <MDCListItemMeta Type="@MDCListItemMetaType.Icon" Source="info" Title="More info" />
+            </MDCListItem>
+            <MDCListItem>
+                <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon Graphic="folder" />
+                <MDCListItemContent PrimaryText="Photos" SecondaryText="Jan 9, 2014" />
+                <MDCListItemMeta Type="@MDCListItemMetaType.Icon" Source="info" Title="More info" />
+            </MDCListItem>
+        </MDCList>
+    </div>
+
+</section>
+
+<section class="preamble mdc-typography--body1">
+    <aside>
+        <p>
+            <em>NOTE:</em> For the purposes of this demo, we've set a max-width of 600px on all
+            <code>mdc-list</code> elements, and surrounded them by a 1px border. This is
+            not included in the base css, which has the list
+            take up as much width as possible (since it's a block element).
+        </p>
+    </aside>
+</section>
+
+<div id="demo-wrapper">
+    <section>
+        <h2>Custom Colors</h2>
+        <section>
+            <h3>Example - Two-Line Lists, Avatars, Metadata, Inset Dividers</h3>
+            <MDCListGroup Class="demo-list-group--custom">
+                <MDCListGroupSubHeader>Folders</MDCListGroupSubHeader>
+                <MDCList Class="demo-list demo-list--with-avatars demo-list--custom demo-list--icon-placeholders" TwoLine="true" AvatarList="true">
+                    <MDCListItem>
+                        <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon Graphic="folder" />
+                        <MDCListItemContent PrimaryText="Photos" SecondaryText="Jan 9, 2014" />
+                        <MDCListItemMeta Type="@MDCListItemMetaType.Icon" Source="info" Title="More info" />
+                    </MDCListItem>
+                    <MDCListItem>
+                        <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon Graphic="folder" />
+                        <MDCListItemContent PrimaryText="Recipes" SecondaryText="Jan 17, 2014" />
+                        <MDCListItemMeta Type="@MDCListItemMetaType.Icon" Source="info" Title="More info" />
+                    </MDCListItem>
+                    <MDCListItem>
+                        <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon Graphic="folder" />
+                        <MDCListItemContent PrimaryText="Work" SecondaryText="Jan 28, 2014" />
+                        <MDCListItemMeta Type="@MDCListItemMetaType.Icon" Source="info" Title="More info" />
+                    </MDCListItem>
+                </MDCList>
+                <MDCListDivider Inset="true" />
+                <MDCListGroupSubHeader>Files</MDCListGroupSubHeader>
+                <MDCList Class="demo-list demo-list--with-avatars demo-list--custom demo-list--icon-placeholders" TwoLine="true" AvatarList="true">
+                    <MDCListItem>
+                        <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon Graphic="insert_drive_file" />
+                        <MDCListItemContent PrimaryText="Vacation Itinerary" SecondaryText="Jan 10, 2014" />
+                        <MDCListItemMeta Type="@MDCListItemMetaType.Icon" Source="info" Title="More info" />
+                    </MDCListItem>
+                    <MDCListItem>
+                        <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon Graphic="insert_drive_file" />
+                        <MDCListItemContent PrimaryText="Kitchen Remodel" SecondaryText="Jan 20, 2014" />
+                        <MDCListItemMeta Type="@MDCListItemMetaType.Icon" Source="info" Title="More info" />
+                    </MDCListItem>
+                </MDCList>
+            </MDCListGroup>
+        </section>
+    </section>
+    <section>
+        <h2>Single-Line List</h2>
+        <section>
+            <h3>Text only, non-interactive (no states)</h3>
+            <MDCList NonInteractive="true" Class="demo-list">
+                <MDCListItem>Single-line item</MDCListItem>
+                <MDCListItem>Single-line item</MDCListItem>
+                <MDCListItem>Single-line item</MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Text only (dense)</h3>
+            <MDCList Dense="true" Class="demo-list">
+                <MDCListItem>Single-line item</MDCListItem>
+                <MDCListItem>Single-line item</MDCListItem>
+                <MDCListItem>Single-line item</MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Graphic</h3>
+            <aside><p><em>Note: The grey background is styled using demo placeholder styles</em></p></aside>
+            <MDCList Class="demo-list demo-list--icon-placeholders">
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon />
+                    Single-line item
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon />
+                    Single-line item
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon />
+                    Single-line item
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Graphic (dense)</h3>
+            <MDCList Dense="true" Class="demo-list demo-list--icon-placeholders">
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon />
+                    Single-line item
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon />
+                    Single-line item
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon />
+                    Single-line item
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Graphic Example - Icon with Text</h3>
+            <MDCList Dense="true" Class="demo-list demo-list--icon-placeholders">
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon Graphic="network_wifi" />
+                    Wi-Fi
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon Graphic="bluetooth" />
+                    Bluetooth
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon Graphic="data_usage" />
+                    Data Usage
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Leading Checkbox</h3>
+            <ul class="mdc-list demo-list" id="leading-checkbox-list">
+                <li class="mdc-list-item checkbox-list-ripple-surface">
+                    <span class="mdc-list-item__graphic">
+                        <div class="mdc-checkbox">
+                            <input type="checkbox"
+                                   class="mdc-checkbox__native-control"
+                                   id="leading-checkbox-blueberries" />
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark"
+                                     viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path"
+                                          fill="none"
+                                          stroke="white"
+                                          d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                        </div>
+                    </span>
+                    <label for="leading-checkbox-blueberries">Blueberries</label>
+                </li>
+                <li class="mdc-list-item checkbox-list-ripple-surface">
+                    <span class="mdc-list-item__graphic">
+                        <div class="mdc-checkbox">
+                            <input type="checkbox"
+                                   class="mdc-checkbox__native-control"
+                                   id="leading-checkbox-boysenberries" />
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark"
+                                     viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path"
+                                          fill="none"
+                                          stroke="white"
+                                          d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                        </div>
+                    </span>
+                    <label for="leading-checkbox-boysenberries">Boysenberries</label>
+                </li>
+                <li class="mdc-list-item checkbox-list-ripple-surface">
+                    <span class="mdc-list-item__graphic">
+                        <div class="mdc-checkbox">
+                            <input type="checkbox"
+                                   class="mdc-checkbox__native-control"
+                                   id="leading-checkbox-strawberries" />
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark"
+                                     viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path"
+                                          fill="none"
+                                          stroke="white"
+                                          d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                        </div>
+                    </span>
+                    <label for="leading-checkbox-strawberries">Strawberries</label>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3>Avatar List</h3>
+            <MDCList AvatarList="true" Class="demo-list demo-list--with-avatars demo-list--icon-placeholders">
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon />
+                    Single-line item
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon />
+                    Single-line item
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon />
+                    Single-line item
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Avatar List (dense)</h3>
+            <MDCList Dense="true" AvatarList="true" Class="demo-list demo-list--with-avatars demo-list--icon-placeholders">
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon />
+                    Single-line item
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon />
+                    Single-line item
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Icon />
+                    Single-line item
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Example - Avatar with Text</h3>
+            <MDCList AvatarList="true" Class="demo-list demo-list--with-avatars">
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Image Graphic="/images/animal1.svg" Width="56" Height="56" Alt="Panda" />
+                    Panda
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Image Graphic="/images/animal2.svg" Width="56" Height="56" Alt="Sloth" />
+                    Sloth
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Image Graphic="/images/animal3.svg" Width="56" Height="56" Alt="Brown Bear" />
+                    Brown Bear
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Metadata</h3>
+            <MDCList Class="demo-list">
+                <MDCListItem>
+                    Single-line item
+                    <MDCListItemMeta>$10.00</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    Single-line item
+                    <MDCListItemMeta>$20.00</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    Single-line item
+                    <MDCListItemMeta>$30.00</MDCListItemMeta>
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Metadata (Dense)</h3>
+            <MDCList Dense="true" Class="demo-list">
+                <MDCListItem>
+                    Single-line item
+                    <MDCListItemMeta>$10.00</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    Single-line item
+                    <MDCListItemMeta>$20.00</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    Single-line item
+                    <MDCListItemMeta>$30.00</MDCListItemMeta>
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Trailing Checkbox</h3>
+            <ul class="mdc-list demo-list" id="trailing-checkbox-list">
+                <li class="mdc-list-item checkbox-list-ripple-surface">
+                    <label for="trailing-checkbox-blueberries">Blueberries</label>
+                    <span class="mdc-list-item__meta">
+                        <div class="mdc-checkbox">
+                            <input type="checkbox"
+                                   class="mdc-checkbox__native-control"
+                                   id="trailing-checkbox-blueberries" />
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark"
+                                     viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path"
+                                          fill="none"
+                                          stroke="white" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                        </div>
+                    </span>
+                </li>
+                <li class="mdc-list-item checkbox-list-ripple-surface">
+                    <label for="trailing-checkbox-boysenberries">Boysenberries</label>
+                    <span class="mdc-list-item__meta">
+                        <div class="mdc-checkbox">
+                            <input type="checkbox"
+                                   class="mdc-checkbox__native-control"
+                                   id="trailing-checkbox-boysenberries" />
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark"
+                                     viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path"
+                                          fill="none"
+                                          stroke="white"
+                                          d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                        </div>
+                    </span>
+                </li>
+                <li class="mdc-list-item checkbox-list-ripple-surface">
+                    <label for="trailing-checkbox-strawberries">Strawberries</label>
+                    <span class="mdc-list-item__meta">
+                        <div class="mdc-checkbox">
+                            <input type="checkbox"
+                                   class="mdc-checkbox__native-control"
+                                   id="trailing-checkbox-strawberries" />
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark"
+                                     viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path"
+                                          fill="none"
+                                          stroke="white"
+                                          d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                        </div>
+                    </span>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3>Avatar + Metadata</h3>
+            <MDCList AvatarList="true" Class="demo-list demo-list--with-avatars demo-list--icon-placeholders">
+                <MDCListItem>
+                    <MDCListItemGraphic Type="MDCListItemGraphicType.Icon"></MDCListItemGraphic>
+                    Single-line item
+                    <MDCListItemMeta>$10.00</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type="MDCListItemGraphicType.Icon"></MDCListItemGraphic>
+                    Single-line item
+                    <MDCListItemMeta>$20.00</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type="MDCListItemGraphicType.Icon"></MDCListItemGraphic>
+                    Single-line item
+                    <MDCListItemMeta>$30.00</MDCListItemMeta>
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Avatar + Metadata (Dense)</h3>
+            <MDCList Dense="true" AvatarList="true" Class="demo-list demo-list--with-avatars demo-list--icon-placeholders">
+                <MDCListItem>
+                    <MDCListItemGraphic Type="MDCListItemGraphicType.Icon"></MDCListItemGraphic>
+                    Single-line item
+                    <MDCListItemMeta>$10.00</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type="MDCListItemGraphicType.Icon"></MDCListItemGraphic>
+                    Single-line item
+                    <MDCListItemMeta>$20.00</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type="MDCListItemGraphicType.Icon"></MDCListItemGraphic>
+                    Single-line item
+                    <MDCListItemMeta>$30.00</MDCListItemMeta>
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Example - Avatar with Text and Icon</h3>
+            <MDCList AvatarList="true" Class="demo-list demo-list--with-avatars demo-list--avatar-and-meta-icon">
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Image Graphic="/images/animal3.svg" Width="56" Height="56" Alt="Brown Bear" />
+                    Brown Bear
+                    <MDCListItemMeta Type="MDCListItemMetaType.Icon" Source="favorite" Title="Remove from favorites"></MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Image Graphic="/images/animal1.svg" Width="56" Height="56" Alt="Panda" />
+                    Panda
+                    <MDCListItemMeta Type="MDCListItemMetaType.Icon" Source="favorite_border" Title="Add to favorites"></MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Type=@MDCListItemGraphicType.Image Graphic="/images/animal2.svg" Width="56" Height="56" Alt="Sloth" />
+                    Sloth
+                    <MDCListItemMeta Type="MDCListItemMetaType.Icon" Source="favorite_border" Title="Add to favorites"></MDCListItemMeta>
+                </MDCListItem>
+            </MDCList>
+        </section>
+    </section>
+    <section>
+        <h2>Two-Line List</h2>
+        <section>
+            <h3>Text-Only</h3>
+            <MDCList TwoLine="true" Class="demo-list">
+                <MDCListItem>
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Text-Only (Dense)</h3>
+            <MDCList Dense="true" TwoLine="true" Class="demo-list">
+                <MDCListItem>
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Graphic</h3>
+            <MDCList TwoLine="true" Class="demo-list  demo-list--icon-placeholders">
+                <MDCListItem>
+                    <MDCListItemGraphic />
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic />
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic />
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Graphic (Dense)</h3>
+            <MDCList TwoLine="true" Dense="true" Class="demo-list demo-list--icon-placeholders">
+                <MDCListItem>
+                    <MDCListItemGraphic />
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic />
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic />
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Avatar List</h3>
+            <MDCList TwoLine="true" AvatarList="true" Class="demo-list demo-list--with-avatars demo-list--icon-placeholders">
+                <MDCListItem>
+                    <MDCListItemGraphic />
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic />
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic />
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Avatar List (dense)</h3>
+            <MDCList TwoLine="true" Dense="true" AvatarList="true" Class="demo-list demo-list--with-avatars demo-list--icon-placeholders">
+                <MDCListItem>
+                    <MDCListItemGraphic />
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic />
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic />
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Metadata</h3>
+            <MDCList TwoLine="true" Class="demo-list">
+                <MDCListItem>
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                    <MDCListItemMeta>$10.00</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                    <MDCListItemMeta>$20.00</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                    <MDCListItemMeta>$30.00</MDCListItemMeta>
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Metadata (Dense)</h3>
+            <MDCList TwoLine="true" Dense="true" Class="demo-list">
+                <MDCListItem>
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                    <MDCListItemMeta>$10.00</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                    <MDCListItemMeta>$20.00</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemContent PrimaryText="Two-line item" SecondaryText="Secondary text" />
+                    <MDCListItemMeta>$30.00</MDCListItemMeta>
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Example - Two-line Avatar + Text + Icon</h3>
+            <MDCList AvatarList="true" TwoLine="true" Class="demo-list demo-list--with-avatars demo-list--icon-placeholders">
+                <MDCListItem>
+                    <MDCListItemGraphic Graphic="folder" />
+                    <MDCListItemContent PrimaryText="Photos" SecondaryText="Jan 9, 2014" />
+                    <MDCListItemMeta Type="MDCListItemType.Anchor" Title="More info">info</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Graphic="folder" />
+                    <MDCListItemContent PrimaryText="Recipes" SecondaryText="Jan 17, 2014" />
+                    <MDCListItemMeta Type="MDCListItemType.Anchor" Title="More info">info</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Graphic="folder" />
+                    <MDCListItemContent PrimaryText="Work" SecondaryText="Jan 28, 2014" />
+                    <MDCListItemMeta Type="MDCListItemType.Anchor" Title="More info">info</MDCListItemMeta>
+                </MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Lists w/ Ellipsis</h3>
+            <MDCList AvatarList="true" TwoLine="true" Class="demo-list demo-list--with-avatars demo-list--icon-placeholders">
+                <MDCListItem>
+                    <MDCListItemGraphic Graphic="folder" />
+                    <MDCListItemContent PrimaryText="Photos" SecondaryText="This is some secondary text" />
+                    <MDCListItemMeta Type="MDCListItemType.Anchor">folder</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Graphic="folder" />
+                    <MDCListItemContent PrimaryText="Photos of my best photography using my finely tuned skills and eye" SecondaryText="This is some secondary text" />
+                    <MDCListItemMeta Type="MDCListItemType.Anchor">folder</MDCListItemMeta>
+                </MDCListItem>
+                <MDCListItem>
+                    <MDCListItemGraphic Graphic="folder" />
+                    <MDCListItemContent PrimaryText="Work Photos" SecondaryText="This is a description of work photos from the years 2018 to present time while I was a barista" />
+                    <MDCListItemMeta Type="MDCListItemType.Anchor">folder</MDCListItemMeta>
+                </MDCListItem>
+            </MDCList>
+        </section>
+    </section>
+    <section>
+        <h2>List Dividers</h2>
+        <section>
+            <h3>Full-Width Dividers</h3>
+            <MDCList Class="demo-list">
+                <MDCListItem>Single-line item - section 1</MDCListItem>
+                <MDCListItem>Single-line item - section 1</MDCListItem>
+                <MDCListItem>Single-line item - section 1</MDCListItem>
+                <MDCListItem Divider="true" />
+                <MDCListItem>Single-line item - section 2</MDCListItem>
+                <MDCListItem>Single-line item - section 2</MDCListItem>
+            </MDCList>
+        </section>
+        <section>
+            <h3>Inset Dividers</h3>
+            <MDCList Class="demo-list">
+                <MDCListItem>Single-line item - section 1</MDCListItem>
+                <MDCListItem>Single-line item - section 1</MDCListItem>
+                <MDCListItem>Single-line item - section 1</MDCListItem>
+                <MDCListItem Inset="true" Divider="true" />
+                <MDCListItem>Single-line item - section 2</MDCListItem>
+                <MDCListItem>Single-line item - section 2</MDCListItem>
+            </MDCList>
+        </section>
+    </section>
+    <section>
+        <h2>List Groups</h2>
+        <section>
+            <h3>Basic Usage</h3>
+            <MDCListGroup>
+                <MDCListGroupSubHeader>List 1</MDCListGroupSubHeader>
+                <MDCList Class="demo-list">
+                    <MDCListItem>Single-line item</MDCListItem>
+                    <MDCListItem>Single-line item</MDCListItem>
+                    <MDCListItem>Single-line item</MDCListItem>
+                </MDCList>
+                <MDCListDivider />
+                <MDCListGroupSubHeader>List 2</MDCListGroupSubHeader>
+                <MDCList Class="demo-list">
+                    <MDCListItem>Single-line item</MDCListItem>
+                    <MDCListItem>Single-line item</MDCListItem>
+                    <MDCListItem>Single-line item</MDCListItem>
+                </MDCList>
+            </MDCListGroup>
+        </section>
+        <section>
+            <h3>Example - Two-Line Lists, Avatars, Metadata, Inset Dividers</h3>
+            <MDCListGroup>
+                <MDCListGroupSubHeader>Folders</MDCListGroupSubHeader>
+                <MDCList TwoLine="true" AvatarList="true" Class="demo-list demo-list--with-avatars demo-list--icon-placeholders">
+                    <MDCListItem>
+                        <MDCListItemGraphic Graphic="folder" />
+                        <MDCListItemContent PrimaryText="Photos" SecondaryText="Jan 9, 2014" />
+                        <MDCListItemMeta Type="@MDCListItemMetaType.Icon" Title="More info">info</MDCListItemMeta>
+                    </MDCListItem>
+                    <MDCListItem>
+                        <MDCListItemGraphic Graphic="folder" />
+                        <MDCListItemContent PrimaryText="Recipes" SecondaryText="Jan 17, 2014" />
+                        <MDCListItemMeta Type="@MDCListItemMetaType.Icon" Title="More info">info</MDCListItemMeta>
+                    </MDCListItem>
+                    <MDCListItem>
+                        <MDCListItemGraphic Graphic="folder" />
+                        <MDCListItemContent PrimaryText="Work" SecondaryText="Jan 28, 2014" />
+                        <MDCListItemMeta Type="@MDCListItemMetaType.Icon" Title="More info">info</MDCListItemMeta>
+                    </MDCListItem>
+                </MDCList>
+                <MDCListDivider Inset="true" />
+                <MDCListGroupSubHeader>Files</MDCListGroupSubHeader>
+                <MDCList TwoLine="true" AvatarList="true" Class="demo-list demo-list--with-avatars demo-list--icon-placeholders">
+                    <MDCListItem>
+                        <MDCListItemGraphic Graphic="folder" />
+                        <MDCListItemContent PrimaryText="Vacation Itinerary" SecondaryText="Jan 10, 2014" />
+                        <MDCListItemMeta Type="@MDCListItemMetaType.Icon" Title="More info">info</MDCListItemMeta>
+                    </MDCListItem>
+                    <MDCListItem>
+                        <MDCListItemGraphic Graphic="folder" />
+                        <MDCListItemContent PrimaryText="Kitchen Remodel" SecondaryText="Jan 20, 2014" />
+                        <MDCListItemMeta Type="@MDCListItemMetaType.Icon" Title="More info">info</MDCListItemMeta>
+                    </MDCListItem>
+                </MDCList>
+            </MDCListGroup>
+        </section>
+    </section>
+</div>
+
+@functions{
+    protected override void OnInit()
+    {
+        AppState.Title = "List";
+        AppState.ToolbarIcon = "arrow_back";
+    }
+}

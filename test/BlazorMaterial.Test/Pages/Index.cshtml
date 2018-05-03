@@ -1,12 +1,22 @@
 @page "/"
+@inject AppState AppState
+@inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
 
 <MDCList TwoLine="true">
-    <MDCListItem Type=@MDCListItemType.Anchor Href="/button">
+    <MDCListItem OnClick=@{ _ => UriHelper.NavigateTo("/button")}>
         <MDCListItemGraphic Type=@MDCListItemGraphicType.Image Graphic="/images/ic_button_24px.svg" />
         <MDCListItemContent PrimaryText="Button" SecondaryText="Raised and flat buttons" />
     </MDCListItem>
-    <MDCListItem Type=@MDCListItemType.Anchor Href="/list">
+    <MDCListItem OnClick=@{ _ => UriHelper.NavigateTo("/list")}>
         <MDCListItemGraphic Type=@MDCListItemGraphicType.Image Graphic="/images/ic_list_24px.svg" />
         <MDCListItemContent PrimaryText="List" SecondaryText="Item layouts in lists" />
     </MDCListItem>
 </MDCList>
+
+@functions{
+    protected override void OnInit()
+    {
+        AppState.Title = "Material Components Catalog";
+        AppState.ToolbarIcon = "/images/ic_component_24px_white.svg";
+    }
+}

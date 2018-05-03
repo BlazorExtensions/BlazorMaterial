@@ -1,17 +1,23 @@
 @using Microsoft.AspNetCore.Blazor;
 @using Microsoft.AspNetCore.Blazor.Components;
+@inherits BlazorMaterialComponent
 
 @switch (Type)
 {
+    case MDCListItemMetaType.Default:
+        <div onclick=@OnClick class=@( $"mdc-list-item__meta {Class}" )>
+            @ChildContent
+        </div>
+        break;
     case MDCListItemMetaType.Icon:
-        <a href=@Href class="mdc-list-item__meta material-icons"
+        <a href=@HRef class=@( $"mdc-list-item__meta material-icons {Class}" )
            aria-label=@Title title=@Title
            onclick=@OnClick>
             @Source
         </a>
         break;
     case MDCListItemMetaType.Image:
-        <a href=@Href class="mdc-list-item__meta"
+        <a href=@HRef class=@( $"mdc-list-item__meta {Class}" )
            aria-label=@Title title=@Title
            onclick=@OnClick>
             <img src=@Source />
@@ -28,7 +34,9 @@
     [Parameter]
     private string Source { get; set; }
     [Parameter]
-    private string Href { get; set; }
+    private string HRef { get; set; }
     [Parameter]
     private Action<UIMouseEventArgs> OnClick { get; set; }
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
 }

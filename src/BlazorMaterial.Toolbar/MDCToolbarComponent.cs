@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Blazor.Components;
 
 namespace BlazorMaterial
 {
-    public class MDCToolbarComponent : BlazorComponent
+    public class MDCToolbarComponent : BlazorMaterialComponent
     {
         private const string ATTACH_FUNCTION = "BlazorMaterial.Toolbar.AttachTo";
         private static readonly ClassBuilder<MDCToolbarComponent> _classNameBuilder;

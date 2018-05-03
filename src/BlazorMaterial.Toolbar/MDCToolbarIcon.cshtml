@@ -1,7 +1,8 @@
 @using Microsoft.AspNetCore.Blazor;
 @using Microsoft.AspNetCore.Blazor.Components;
+@inherits BlazorMaterialComponent
 
-<button onclick=@OnClick class="material-icons mdc-toolbar__icon">@Icon</button>
+<button onclick=@OnClick class=@( $"material-icons mdc-toolbar__icon {Class}" )>@Icon</button>
 
 @functions{
     [Parameter]

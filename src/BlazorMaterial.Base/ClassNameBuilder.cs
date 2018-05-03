@@ -1,11 +1,10 @@
-using Microsoft.AspNetCore.Blazor.Components;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BlazorMaterial
 {
-    public class ClassBuilder<T> where T : BlazorComponent
+    public class ClassBuilder<T> where T : BlazorMaterialComponent
     {
         private const char ClassNameSeparator = ' ';
 
@@ -35,7 +34,7 @@ namespace BlazorMaterial
             }
         }
 
-        public string Build(T component, bool addClassNamePrefix = true)
+        public string Build(T component, string extras = "", bool addClassNamePrefix = true)
         {
             if (this.classDefinitions.Count == 0)
             {
@@ -59,12 +58,20 @@ namespace BlazorMaterial
                     }
                     else
                     {
-                        this.builder.Append($"{classDefinition.Name}{DashSeparator}{classDefinition.ValueAccessor(component)}{ClassNameSeparator}");
+                        this.builder.Append($"{classDefinition.Name}{classDefinition.PrefixSeparator}{classDefinition.ValueAccessor(component)}");
                     }
                 }
             }
 
-            return this.builder.ToString();
+            if (!string.IsNullOrWhiteSpace(extras))
+            {
+                return $"{this.builder.ToString()} {extras}";
+            }
+            else
+            {
+                return this.builder.ToString();
+            }
+            
         }
 
         public ClassBuilder<T> DefineClass(Func<T, string> valueAccessor, Func<T, bool> predicate = default, PrefixSeparators prefixSeparator = PrefixSeparators.Dash)
@@ -117,11 +124,3 @@ namespace BlazorMaterial
         Modifier
     }
 }
-
-
-//private static ClassBuilder = new ClassNamesBuilder()
-//                    .WithClassPrefix(this.PrefixCls)
-//                    .AddPrefix(BUTTON_CLASS)
-//                    .AddPropertyPart((c) => c.GetTypeClass())
-//                    .AddPropertyPart((c) => c.GetShapeClass(), (c) => c.Shape != ButtonShape.Undefined)
-//                    .Build();

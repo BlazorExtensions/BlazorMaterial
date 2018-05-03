@@ -14,6 +14,7 @@ namespace BlazorMaterial
 
     public enum MDCListItemMetaType
     {
+        Default,
         Icon,
         Image
     }

@@ -3,12 +3,20 @@
 @if (this.Type == MDCButtonType.Anchor)
 {
     <a class=@ClassString ref="_MDCButton" onmousedown=@OnMouseDown onmouseup=@OnMouseUp onkeyup=@OnKeyUp onkeydown=@OnKeyDown onkeypress=@OnKeyPress disabled=@Disabled onclick=@OnClick href=@HRef>
+        @if (!string.IsNullOrWhiteSpace(Icon))
+        {
+            <i class="material-icons mdc-button__icon" aria-hidden="true">@Icon</i>
+        }
         @ChildContent
     </a>
 }
 else
 {
     <button class=@ClassString ref="_MDCButton" style=@Style onmousedown=@OnMouseDown onmouseup=@OnMouseUp onkeyup=@OnKeyUp onkeydown=@OnKeyDown onkeypress=@OnKeyPress disabled=@Disabled onclick=@OnClick>
+        @if (!string.IsNullOrWhiteSpace(Icon))
+        {
+            <i class="material-icons mdc-button__icon" aria-hidden="true">@Icon</i>
+        }
         @ChildContent
     </button>
 }

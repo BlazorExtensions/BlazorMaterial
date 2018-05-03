@@ -1,46 +1,13 @@
 @inherits BlazorLayoutComponent
-@implements IDisposable
 @inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
+@inject AppState AppState
 
-<div class="mdc-typography">
-    <MDCToolbar Style=@MDCToolbarStyle.Fixed>
-        <MDCToolbarRow>
-            <MDCToolbarSection Title="Material Components Catalog"
-                               Icon=@Icon Alignment=@MDCToolbarSectionAlignment.Start OnIconClick=@{ _ => UriHelper.NavigateTo("/")}/>
-        </MDCToolbarRow>
-    </MDCToolbar>
-    <main class="mdc-toolbar-fixed-adjust">
-        @Body
-    </main>
-</div>
-
-@functions {
-    private const string DEFAULT_ICON = "/images/ic_component_24px_white.svg";
-    private const string BACK_ICON = "arrow_back";
-
-    public string Icon { get; set; } = DEFAULT_ICON;
-
-    protected override void OnInit()
-    {
-        UriHelper.OnLocationChanged += OnLocationChanges;
-    }
-
-    private void OnLocationChanges(object sender, string location)
-    {
-        var path = UriHelper.ToBaseRelativePath(UriHelper.GetBaseUriPrefix(), location);
-        if (path != "/")
-        {
-            Icon = BACK_ICON;
-        }
-        else
-        {
-            Icon = DEFAULT_ICON;
-        }
-        StateHasChanged();
-    }
-
-    public void Dispose()
-    {
-        UriHelper.OnLocationChanged -= OnLocationChanges;
-    }
-}
+<MDCToolbar Style=@MDCToolbarStyle.Fixed>
+    <MDCToolbarRow>
+        <MDCToolbarSection Title=@AppState.Title
+                           Icon=@AppState.ToolbarIcon Alignment=@MDCToolbarSectionAlignment.Start OnIconClick=@{ _ => UriHelper.NavigateTo("/")} />
+    </MDCToolbarRow>
+</MDCToolbar>
+<main class="mdc-toolbar-fixed-adjust">
+    @Body
+</main>

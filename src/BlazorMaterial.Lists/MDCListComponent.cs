@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Blazor.Components;
 
 namespace BlazorMaterial
 {
-    public class MDCListComponent : BlazorComponent
+    public class MDCListComponent : BlazorMaterialComponent
     {
         private static readonly ClassBuilder<MDCListComponent> _classNameBuilder;
         [Parameter]
@@ -30,7 +30,7 @@ namespace BlazorMaterial
 
         protected override void OnInit()
         {
-            this.ClassString = _classNameBuilder.Build(this);
+            this.ClassString = _classNameBuilder.Build(this, this.Class);
         }
     }
 }

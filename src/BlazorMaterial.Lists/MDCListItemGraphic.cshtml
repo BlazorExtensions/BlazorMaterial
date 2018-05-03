@@ -1,9 +1,10 @@
 @using Microsoft.AspNetCore.Blazor.Components;
+@inherits BlazorMaterialComponent
 
-<span class="mdc-list-item__graphic">
+<span class=@( $"mdc-list-item__graphic {Class}" )>
     @if (Type == MDCListItemGraphicType.Image)
     {
-        <img src="@Graphic" />
+        <img src="@Graphic" width="@Width" height="@Height" alt="@Alt" />
     }
     else
     {
@@ -16,4 +17,10 @@
     private MDCListItemGraphicType Type { get; set; }
     [Parameter]
     private string Graphic { get; set; }
+    [Parameter]
+    private string Width { get; set; }
+    [Parameter]
+    private string Height { get; set; }
+    [Parameter]
+    private string Alt { get; set; }
 }

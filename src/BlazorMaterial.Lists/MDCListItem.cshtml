@@ -1,24 +1,27 @@
 @using Microsoft.AspNetCore.Blazor;
 @using Microsoft.AspNetCore.Blazor.Components;
+@inherits BlazorMaterialComponent
 
-@if (Type == MDCListItemType.Anchor)
-{
-    <a href="@Href" role="listitem" class="mdc-list-item">
-        @ChildContent
-    </a>
-}
-else
-{
-    <div role="listitem" class="mdc-list-item">
-        @ChildContent
-    </div>
-}
+<li class=@( $"mdc-list-item {Class} {_dividerClass}" ) onclick="@OnClick">
+    @ChildContent
+</li>
 
 @functions{
     [Parameter]
-    private MDCListItemType Type { get; set; }
+    private Action<UIMouseEventArgs> OnClick { get; set; }
+    [Parameter]
+    private bool Divider { get; set; }
+    [Parameter]
+    private bool Inset { get; set; }
     [Parameter]
     private RenderFragment ChildContent { get; set; }
-    [Parameter]
-    private string Href { get; set; }
+
+    private string _dividerClass = "";
+
+    protected override void OnInit()
+    {
+        var divider = Divider ? "mdc-list-divider" : "";
+        var inset = Inset ? "mdc-list-divider--inset" : "";
+        _dividerClass = $"{divider} {inset}";
+    }
 }

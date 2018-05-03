@@ -5,10 +5,11 @@ using System;
 
 namespace BlazorMaterial
 {
-    public class MDCButtonComponent : BlazorComponent
+    public class MDCButtonComponent : BlazorMaterialComponent
     {
         private const string ADD_RIPPLE_FUNCTION = "BlazorMaterial.AddRipple";
         private static readonly ClassBuilder<MDCButtonComponent> _classNameBuilder;
+
         [Parameter]
         protected MDCButtonType Type { get; set; }
         [Parameter]
@@ -46,13 +47,12 @@ namespace BlazorMaterial
         {
             _classNameBuilder = new ClassBuilder<MDCButtonComponent>("mdc", "button")
                 .DefineClass("dense", c => c.Dense, PrefixSeparators.Modifier)
-                .DefineClass((c) => c.Style.ToString().ToLowerInvariant(), (c) => c.Style != MDCButtonStyle.Default)
-                .DefineClass("icon", (c) => c.ChildContent == null && !string.IsNullOrWhiteSpace(c.Icon), PrefixSeparators.Element);
+                .DefineClass((c) => c.Style.ToString().ToLowerInvariant(), (c) => c.Style != MDCButtonStyle.Default, PrefixSeparators.Modifier);
         }
 
         protected override void OnInit()
         {
-            this.ClassString = _classNameBuilder.Build(this);
+            this.ClassString = _classNameBuilder.Build(this, this.Class);
         }
 
         protected override void OnAfterRender()

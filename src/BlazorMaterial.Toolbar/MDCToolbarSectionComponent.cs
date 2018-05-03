@@ -4,7 +4,7 @@ using System;
 
 namespace BlazorMaterial
 {
-    public class MDCToolbarSectionComponent : BlazorComponent
+    public class MDCToolbarSectionComponent : BlazorMaterialComponent
     {
         private static readonly ClassBuilder<MDCToolbarSectionComponent> _classNameBuilder;
 
