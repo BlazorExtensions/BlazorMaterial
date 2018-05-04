@@ -9,9 +9,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["toolbar"] = factory();
+		exports["topAppBar"] = factory();
 	else
-		root["mdc"] = root["mdc"] || {}, root["mdc"]["toolbar"] = factory();
+		root["mdc"] = root["mdc"] || {}, root["mdc"]["topAppBar"] = factory();
 })(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -75,7 +75,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 111);
+/******/ 	return __webpack_require__(__webpack_require__.s = 114);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -357,16 +357,26 @@ var MDCComponent = function () {
 
 /***/ }),
 
-/***/ 111:
+/***/ 114:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MDCToolbar", function() { return MDCToolbar; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__material_base_index__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ripple_index__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__foundation__ = __webpack_require__(112);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCToolbarFoundation", function() { return __WEBPACK_IMPORTED_MODULE_2__foundation__["a"]; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MDCTopAppBar", function() { return MDCTopAppBar; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__adapter__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_base_component__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ripple_index__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__constants__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__foundation__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__fixed_foundation__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__short_foundation__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__standard_foundation__ = __webpack_require__(117);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCTopAppBarBaseFoundation", function() { return __WEBPACK_IMPORTED_MODULE_4__foundation__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCTopAppBarFoundation", function() { return __WEBPACK_IMPORTED_MODULE_7__standard_foundation__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCFixedTopAppBarFoundation", function() { return __WEBPACK_IMPORTED_MODULE_5__fixed_foundation__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCShortTopAppBarFoundation", function() { return __WEBPACK_IMPORTED_MODULE_6__short_foundation__["a"]; });
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
@@ -378,7 +388,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- * Copyright 2017 Google Inc. All Rights Reserved.
+ * @license
+ * Copyright 2018 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -400,20 +411,52 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var MDCToolbar = function (_MDCComponent) {
-  _inherits(MDCToolbar, _MDCComponent);
 
-  function MDCToolbar() {
-    _classCallCheck(this, MDCToolbar);
 
-    return _possibleConstructorReturn(this, (MDCToolbar.__proto__ || Object.getPrototypeOf(MDCToolbar)).apply(this, arguments));
+/**
+ * @extends {MDCComponent<!MDCTopAppBarBaseFoundation>}
+ * @final
+ */
+
+var MDCTopAppBar = function (_MDCComponent) {
+  _inherits(MDCTopAppBar, _MDCComponent);
+
+  /**
+   * @param {...?} args
+   */
+  function MDCTopAppBar() {
+    var _ref;
+
+    _classCallCheck(this, MDCTopAppBar);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    /** @private {?Element} */
+    var _this = _possibleConstructorReturn(this, (_ref = MDCTopAppBar.__proto__ || Object.getPrototypeOf(MDCTopAppBar)).call.apply(_ref, [this].concat(args)));
+
+    _this.navIcon_;
+    /** @type {?Array<MDCRipple>} */
+    _this.iconRipples_;
+    return _this;
   }
 
-  _createClass(MDCToolbar, [{
+  _createClass(MDCTopAppBar, [{
     key: 'initialize',
     value: function initialize() {
-      this.ripples_ = [].map.call(this.root_.querySelectorAll(__WEBPACK_IMPORTED_MODULE_2__foundation__["a" /* default */].strings.ICON_SELECTOR), function (icon) {
-        var ripple = __WEBPACK_IMPORTED_MODULE_1__material_ripple_index__["MDCRipple"].attachTo(icon);
+      var rippleFactory = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function (el) {
+        return __WEBPACK_IMPORTED_MODULE_2__material_ripple_index__["MDCRipple"].attachTo(el);
+      };
+
+      this.navIcon_ = this.root_.querySelector(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* strings */].NAVIGATION_ICON_SELECTOR);
+
+      // Get all icons in the toolbar and instantiate the ripples
+      var icons = [].slice.call(this.root_.querySelectorAll(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* strings */].ACTION_ITEM_SELECTOR));
+      icons.push(this.navIcon_);
+
+      this.iconRipples_ = icons.map(function (icon) {
+        var ripple = rippleFactory(icon);
         ripple.unbounded = true;
         return ripple;
       });
@@ -421,17 +464,29 @@ var MDCToolbar = function (_MDCComponent) {
   }, {
     key: 'destroy',
     value: function destroy() {
-      this.ripples_.forEach(function (ripple) {
-        ripple.destroy();
+      this.iconRipples_.forEach(function (iconRipple) {
+        return iconRipple.destroy();
       });
-      _get(MDCToolbar.prototype.__proto__ || Object.getPrototypeOf(MDCToolbar.prototype), 'destroy', this).call(this);
+      _get(MDCTopAppBar.prototype.__proto__ || Object.getPrototypeOf(MDCTopAppBar.prototype), 'destroy', this).call(this);
     }
+
+    /**
+     * @param {!Element} root
+     * @return {!MDCTopAppBar}
+     */
+
   }, {
     key: 'getDefaultFoundation',
+
+
+    /**
+     * @return {!MDCTopAppBarBaseFoundation}
+     */
     value: function getDefaultFoundation() {
       var _this2 = this;
 
-      return new __WEBPACK_IMPORTED_MODULE_2__foundation__["a" /* default */]({
+      /** @type {!MDCTopAppBarAdapter} */
+      var adapter = /** @type {!MDCTopAppBarAdapter} */_extends({
         hasClass: function hasClass(className) {
           return _this2.root_.classList.contains(className);
         },
@@ -440,6 +495,25 @@ var MDCToolbar = function (_MDCComponent) {
         },
         removeClass: function removeClass(className) {
           return _this2.root_.classList.remove(className);
+        },
+        setStyle: function setStyle(property, value) {
+          return _this2.root_.style.setProperty(property, value);
+        },
+        getTopAppBarHeight: function getTopAppBarHeight() {
+          return _this2.root_.clientHeight;
+        },
+        registerNavigationIconInteractionHandler: function registerNavigationIconInteractionHandler(evtType, handler) {
+          if (_this2.navIcon_) {
+            _this2.navIcon_.addEventListener(evtType, handler);
+          }
+        },
+        deregisterNavigationIconInteractionHandler: function deregisterNavigationIconInteractionHandler(evtType, handler) {
+          if (_this2.navIcon_) {
+            _this2.navIcon_.removeEventListener(evtType, handler);
+          }
+        },
+        notifyNavigationIconClicked: function notifyNavigationIconClicked() {
+          _this2.emit(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* strings */].NAVIGATION_EVENT, {});
         },
         registerScrollHandler: function registerScrollHandler(handler) {
           return window.addEventListener('scroll', handler);
@@ -453,77 +527,50 @@ var MDCToolbar = function (_MDCComponent) {
         deregisterResizeHandler: function deregisterResizeHandler(handler) {
           return window.removeEventListener('resize', handler);
         },
-        getViewportWidth: function getViewportWidth() {
-          return window.innerWidth;
-        },
         getViewportScrollY: function getViewportScrollY() {
           return window.pageYOffset;
         },
-        getOffsetHeight: function getOffsetHeight() {
-          return _this2.root_.offsetHeight;
-        },
-        getFirstRowElementOffsetHeight: function getFirstRowElementOffsetHeight() {
-          return _this2.firstRowElement_.offsetHeight;
-        },
-        notifyChange: function notifyChange(evtData) {
-          return _this2.emit(__WEBPACK_IMPORTED_MODULE_2__foundation__["a" /* default */].strings.CHANGE_EVENT, evtData);
-        },
-        setStyle: function setStyle(property, value) {
-          return _this2.root_.style.setProperty(property, value);
-        },
-        setStyleForTitleElement: function setStyleForTitleElement(property, value) {
-          return _this2.titleElement_.style.setProperty(property, value);
-        },
-        setStyleForFlexibleRowElement: function setStyleForFlexibleRowElement(property, value) {
-          return _this2.firstRowElement_.style.setProperty(property, value);
-        },
-        setStyleForFixedAdjustElement: function setStyleForFixedAdjustElement(property, value) {
-          if (_this2.fixedAdjustElement) {
-            _this2.fixedAdjustElement.style.setProperty(property, value);
-          }
+        getTotalActionItems: function getTotalActionItems() {
+          return _this2.root_.querySelectorAll(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* strings */].ACTION_ITEM_SELECTOR).length;
         }
       });
-    }
-  }, {
-    key: 'firstRowElement_',
-    get: function get() {
-      return this.root_.querySelector(__WEBPACK_IMPORTED_MODULE_2__foundation__["a" /* default */].strings.FIRST_ROW_SELECTOR);
-    }
-  }, {
-    key: 'titleElement_',
-    get: function get() {
-      return this.root_.querySelector(__WEBPACK_IMPORTED_MODULE_2__foundation__["a" /* default */].strings.TITLE_SELECTOR);
-    }
-  }, {
-    key: 'fixedAdjustElement',
-    set: function set(fixedAdjustElement) {
-      this.fixedAdjustElement_ = fixedAdjustElement;
-      this.foundation_.updateAdjustElementStyles();
-    },
-    get: function get() {
-      return this.fixedAdjustElement_;
+
+      /** @type {!MDCTopAppBarBaseFoundation} */
+      var foundation = void 0;
+      if (this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* cssClasses */].SHORT_CLASS)) {
+        foundation = new __WEBPACK_IMPORTED_MODULE_6__short_foundation__["a" /* default */](adapter);
+      } else if (this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* cssClasses */].FIXED_CLASS)) {
+        foundation = new __WEBPACK_IMPORTED_MODULE_5__fixed_foundation__["a" /* default */](adapter);
+      } else {
+        foundation = new __WEBPACK_IMPORTED_MODULE_7__standard_foundation__["a" /* default */](adapter);
+      }
+
+      return foundation;
     }
   }], [{
     key: 'attachTo',
     value: function attachTo(root) {
-      return new MDCToolbar(root);
+      return new MDCTopAppBar(root);
     }
   }]);
 
-  return MDCToolbar;
-}(__WEBPACK_IMPORTED_MODULE_0__material_base_index__["MDCComponent"]);
+  return MDCTopAppBar;
+}(__WEBPACK_IMPORTED_MODULE_1__material_base_component__["a" /* default */]);
+
+
 
 /***/ }),
 
-/***/ 112:
+/***/ 115:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__material_base_foundation__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constants__ = __webpack_require__(113);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__adapter__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__foundation__ = __webpack_require__(23);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -532,7 +579,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- * Copyright 2017 Google Inc. All Rights Reserved.
+ * @license
+ * Copyright 2018 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -549,271 +597,97 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var MDCToolbarFoundation = function (_MDCFoundation) {
-  _inherits(MDCToolbarFoundation, _MDCFoundation);
 
-  _createClass(MDCToolbarFoundation, null, [{
-    key: 'cssClasses',
-    get: function get() {
-      return __WEBPACK_IMPORTED_MODULE_1__constants__["a" /* cssClasses */];
-    }
-  }, {
-    key: 'strings',
-    get: function get() {
-      return __WEBPACK_IMPORTED_MODULE_1__constants__["c" /* strings */];
-    }
-  }, {
-    key: 'numbers',
-    get: function get() {
-      return __WEBPACK_IMPORTED_MODULE_1__constants__["b" /* numbers */];
-    }
-  }, {
-    key: 'defaultAdapter',
-    get: function get() {
-      return {
-        hasClass: function hasClass() {
-          return (/* className: string */ /* boolean */false
-          );
-        },
-        addClass: function addClass() /* className: string */{},
-        removeClass: function removeClass() /* className: string */{},
-        registerScrollHandler: function registerScrollHandler() /* handler: EventListener */{},
-        deregisterScrollHandler: function deregisterScrollHandler() /* handler: EventListener */{},
-        registerResizeHandler: function registerResizeHandler() /* handler: EventListener */{},
-        deregisterResizeHandler: function deregisterResizeHandler() /* handler: EventListener */{},
-        getViewportWidth: function getViewportWidth() {
-          return (/* number */0
-          );
-        },
-        getViewportScrollY: function getViewportScrollY() {
-          return (/* number */0
-          );
-        },
-        getOffsetHeight: function getOffsetHeight() {
-          return (/* number */0
-          );
-        },
-        getFirstRowElementOffsetHeight: function getFirstRowElementOffsetHeight() {
-          return (/* number */0
-          );
-        },
-        notifyChange: function notifyChange() /* evtData: {flexibleExpansionRatio: number} */{},
-        setStyle: function setStyle() /* property: string, value: string */{},
-        setStyleForTitleElement: function setStyleForTitleElement() /* property: string, value: string */{},
-        setStyleForFlexibleRowElement: function setStyleForFlexibleRowElement() /* property: string, value: string */{},
-        setStyleForFixedAdjustElement: function setStyleForFixedAdjustElement() /* property: string, value: string */{}
-      };
-    }
-  }]);
 
-  function MDCToolbarFoundation(adapter) {
-    _classCallCheck(this, MDCToolbarFoundation);
+/**
+ * @extends {MDCTopAppBarFoundation<!MDCFixedTopAppBarFoundation>}
+ * @final
+ */
 
-    var _this = _possibleConstructorReturn(this, (MDCToolbarFoundation.__proto__ || Object.getPrototypeOf(MDCToolbarFoundation)).call(this, _extends(MDCToolbarFoundation.defaultAdapter, adapter)));
+var MDCFixedTopAppBarFoundation = function (_MDCTopAppBarFoundati) {
+  _inherits(MDCFixedTopAppBarFoundation, _MDCTopAppBarFoundati);
 
-    _this.resizeHandler_ = function () {
-      return _this.checkRowHeight_();
-    };
+  /**
+   * @param {!MDCTopAppBarAdapter} adapter
+   */
+  function MDCFixedTopAppBarFoundation(adapter) {
+    _classCallCheck(this, MDCFixedTopAppBarFoundation);
+
+    /** State variable for the previous scroll iteration top app bar state */
+    var _this = _possibleConstructorReturn(this, (MDCFixedTopAppBarFoundation.__proto__ || Object.getPrototypeOf(MDCFixedTopAppBarFoundation)).call(this, adapter));
+
+    _this.wasScrolled_ = false;
+
     _this.scrollHandler_ = function () {
-      return _this.updateToolbarStyles_();
+      return _this.fixedScrollHandler_();
     };
-    _this.checkRowHeightFrame_ = 0;
-    _this.scrollFrame_ = 0;
-    _this.executedLastChange_ = false;
-
-    _this.calculations_ = {
-      toolbarRowHeight: 0,
-      // Calculated Height ratio. We use ratio to calculate corresponding heights in resize event.
-      toolbarRatio: 0, // The ratio of toolbar height to row height
-      flexibleExpansionRatio: 0, // The ratio of flexible space height to row height
-      maxTranslateYRatio: 0, // The ratio of max toolbar move up distance to row height
-      scrollThresholdRatio: 0, // The ratio of max scrollTop that we should listen to to row height
-      // Derived Heights based on the above key ratios.
-      toolbarHeight: 0,
-      flexibleExpansionHeight: 0, // Flexible row minus toolbar height (derived)
-      maxTranslateYDistance: 0, // When toolbar only fix last row (derived)
-      scrollThreshold: 0
-    };
-    // Toolbar fixed behavior
-    // If toolbar is fixed
-    _this.fixed_ = false;
-    // If fixed is targeted only at the last row
-    _this.fixedLastrow_ = false;
-    // Toolbar flexible behavior
-    // If the first row is flexible
-    _this.hasFlexibleRow_ = false;
-    // If use the default behavior
-    _this.useFlexDefaultBehavior_ = false;
     return _this;
   }
 
-  _createClass(MDCToolbarFoundation, [{
+  _createClass(MDCFixedTopAppBarFoundation, [{
     key: 'init',
     value: function init() {
-      this.fixed_ = this.adapter_.hasClass(MDCToolbarFoundation.cssClasses.FIXED);
-      this.fixedLastrow_ = this.adapter_.hasClass(MDCToolbarFoundation.cssClasses.FIXED_LASTROW) & this.fixed_;
-      this.hasFlexibleRow_ = this.adapter_.hasClass(MDCToolbarFoundation.cssClasses.TOOLBAR_ROW_FLEXIBLE);
-      if (this.hasFlexibleRow_) {
-        this.useFlexDefaultBehavior_ = this.adapter_.hasClass(MDCToolbarFoundation.cssClasses.FLEXIBLE_DEFAULT_BEHAVIOR);
-      }
-      this.initKeyRatio_();
-      this.setKeyHeights_();
-      this.adapter_.registerResizeHandler(this.resizeHandler_);
+      _get(MDCFixedTopAppBarFoundation.prototype.__proto__ || Object.getPrototypeOf(MDCFixedTopAppBarFoundation.prototype), 'init', this).call(this);
       this.adapter_.registerScrollHandler(this.scrollHandler_);
     }
   }, {
     key: 'destroy',
     value: function destroy() {
-      this.adapter_.deregisterResizeHandler(this.resizeHandler_);
+      _get(MDCFixedTopAppBarFoundation.prototype.__proto__ || Object.getPrototypeOf(MDCFixedTopAppBarFoundation.prototype), 'destroy', this).call(this);
       this.adapter_.deregisterScrollHandler(this.scrollHandler_);
     }
-  }, {
-    key: 'updateAdjustElementStyles',
-    value: function updateAdjustElementStyles() {
-      if (this.fixed_) {
-        this.adapter_.setStyleForFixedAdjustElement('margin-top', this.calculations_.toolbarHeight + 'px');
-      }
-    }
-  }, {
-    key: 'getFlexibleExpansionRatio_',
-    value: function getFlexibleExpansionRatio_(scrollTop) {
-      // To prevent division by zero when there is no flexibleExpansionHeight
-      var delta = 0.0001;
-      return Math.max(0, 1 - scrollTop / (this.calculations_.flexibleExpansionHeight + delta));
-    }
-  }, {
-    key: 'checkRowHeight_',
-    value: function checkRowHeight_() {
-      var _this2 = this;
 
-      cancelAnimationFrame(this.checkRowHeightFrame_);
-      this.checkRowHeightFrame_ = requestAnimationFrame(function () {
-        return _this2.setKeyHeights_();
-      });
-    }
-  }, {
-    key: 'setKeyHeights_',
-    value: function setKeyHeights_() {
-      var newToolbarRowHeight = this.getRowHeight_();
-      if (newToolbarRowHeight !== this.calculations_.toolbarRowHeight) {
-        this.calculations_.toolbarRowHeight = newToolbarRowHeight;
-        this.calculations_.toolbarHeight = this.calculations_.toolbarRatio * this.calculations_.toolbarRowHeight;
-        this.calculations_.flexibleExpansionHeight = this.calculations_.flexibleExpansionRatio * this.calculations_.toolbarRowHeight;
-        this.calculations_.maxTranslateYDistance = this.calculations_.maxTranslateYRatio * this.calculations_.toolbarRowHeight;
-        this.calculations_.scrollThreshold = this.calculations_.scrollThresholdRatio * this.calculations_.toolbarRowHeight;
-        this.updateAdjustElementStyles();
-        this.updateToolbarStyles_();
-      }
-    }
-  }, {
-    key: 'updateToolbarStyles_',
-    value: function updateToolbarStyles_() {
-      var _this3 = this;
+    /**
+     * Scroll handler for applying/removing the modifier class
+     * on the fixed top app bar.
+     */
 
-      cancelAnimationFrame(this.scrollFrame_);
-      this.scrollFrame_ = requestAnimationFrame(function () {
-        var scrollTop = _this3.adapter_.getViewportScrollY();
-        var hasScrolledOutOfThreshold = _this3.scrolledOutOfThreshold_(scrollTop);
+  }, {
+    key: 'fixedScrollHandler_',
+    value: function fixedScrollHandler_() {
+      var currentScroll = this.adapter_.getViewportScrollY();
 
-        if (hasScrolledOutOfThreshold && _this3.executedLastChange_) {
-          return;
+      if (currentScroll <= 0) {
+        if (this.wasScrolled_) {
+          this.adapter_.removeClass(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* cssClasses */].FIXED_SCROLLED_CLASS);
+          this.wasScrolled_ = false;
         }
-
-        var flexibleExpansionRatio = _this3.getFlexibleExpansionRatio_(scrollTop);
-
-        _this3.updateToolbarFlexibleState_(flexibleExpansionRatio);
-        if (_this3.fixedLastrow_) {
-          _this3.updateToolbarFixedState_(scrollTop);
-        }
-        if (_this3.hasFlexibleRow_) {
-          _this3.updateFlexibleRowElementStyles_(flexibleExpansionRatio);
-        }
-        _this3.executedLastChange_ = hasScrolledOutOfThreshold;
-        _this3.adapter_.notifyChange({ flexibleExpansionRatio: flexibleExpansionRatio });
-      });
-    }
-  }, {
-    key: 'scrolledOutOfThreshold_',
-    value: function scrolledOutOfThreshold_(scrollTop) {
-      return scrollTop > this.calculations_.scrollThreshold;
-    }
-  }, {
-    key: 'initKeyRatio_',
-    value: function initKeyRatio_() {
-      var toolbarRowHeight = this.getRowHeight_();
-      var firstRowMaxRatio = this.adapter_.getFirstRowElementOffsetHeight() / toolbarRowHeight;
-      this.calculations_.toolbarRatio = this.adapter_.getOffsetHeight() / toolbarRowHeight;
-      this.calculations_.flexibleExpansionRatio = firstRowMaxRatio - 1;
-      this.calculations_.maxTranslateYRatio = this.fixedLastrow_ ? this.calculations_.toolbarRatio - firstRowMaxRatio : 0;
-      this.calculations_.scrollThresholdRatio = (this.fixedLastrow_ ? this.calculations_.toolbarRatio : firstRowMaxRatio) - 1;
-    }
-  }, {
-    key: 'getRowHeight_',
-    value: function getRowHeight_() {
-      var breakpoint = MDCToolbarFoundation.numbers.TOOLBAR_MOBILE_BREAKPOINT;
-      return this.adapter_.getViewportWidth() < breakpoint ? MDCToolbarFoundation.numbers.TOOLBAR_ROW_MOBILE_HEIGHT : MDCToolbarFoundation.numbers.TOOLBAR_ROW_HEIGHT;
-    }
-  }, {
-    key: 'updateToolbarFlexibleState_',
-    value: function updateToolbarFlexibleState_(flexibleExpansionRatio) {
-      this.adapter_.removeClass(MDCToolbarFoundation.cssClasses.FLEXIBLE_MAX);
-      this.adapter_.removeClass(MDCToolbarFoundation.cssClasses.FLEXIBLE_MIN);
-      if (flexibleExpansionRatio === 1) {
-        this.adapter_.addClass(MDCToolbarFoundation.cssClasses.FLEXIBLE_MAX);
-      } else if (flexibleExpansionRatio === 0) {
-        this.adapter_.addClass(MDCToolbarFoundation.cssClasses.FLEXIBLE_MIN);
-      }
-    }
-  }, {
-    key: 'updateToolbarFixedState_',
-    value: function updateToolbarFixedState_(scrollTop) {
-      var translateDistance = Math.max(0, Math.min(scrollTop - this.calculations_.flexibleExpansionHeight, this.calculations_.maxTranslateYDistance));
-      this.adapter_.setStyle('transform', 'translateY(' + -translateDistance + 'px)');
-
-      if (translateDistance === this.calculations_.maxTranslateYDistance) {
-        this.adapter_.addClass(MDCToolbarFoundation.cssClasses.FIXED_AT_LAST_ROW);
       } else {
-        this.adapter_.removeClass(MDCToolbarFoundation.cssClasses.FIXED_AT_LAST_ROW);
+        if (!this.wasScrolled_) {
+          this.adapter_.addClass(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* cssClasses */].FIXED_SCROLLED_CLASS);
+          this.wasScrolled_ = true;
+        }
       }
-    }
-  }, {
-    key: 'updateFlexibleRowElementStyles_',
-    value: function updateFlexibleRowElementStyles_(flexibleExpansionRatio) {
-      if (this.fixed_) {
-        var height = this.calculations_.flexibleExpansionHeight * flexibleExpansionRatio;
-        this.adapter_.setStyleForFlexibleRowElement('height', height + this.calculations_.toolbarRowHeight + 'px');
-      }
-      if (this.useFlexDefaultBehavior_) {
-        this.updateElementStylesDefaultBehavior_(flexibleExpansionRatio);
-      }
-    }
-  }, {
-    key: 'updateElementStylesDefaultBehavior_',
-    value: function updateElementStylesDefaultBehavior_(flexibleExpansionRatio) {
-      var maxTitleSize = MDCToolbarFoundation.numbers.MAX_TITLE_SIZE;
-      var minTitleSize = MDCToolbarFoundation.numbers.MIN_TITLE_SIZE;
-      var currentTitleSize = (maxTitleSize - minTitleSize) * flexibleExpansionRatio + minTitleSize;
-
-      this.adapter_.setStyleForTitleElement('font-size', currentTitleSize + 'rem');
     }
   }]);
 
-  return MDCToolbarFoundation;
-}(__WEBPACK_IMPORTED_MODULE_0__material_base_foundation__["a" /* default */]);
+  return MDCFixedTopAppBarFoundation;
+}(__WEBPACK_IMPORTED_MODULE_2__foundation__["a" /* default */]);
 
-/* harmony default export */ __webpack_exports__["a"] = (MDCToolbarFoundation);
+/* harmony default export */ __webpack_exports__["a"] = (MDCFixedTopAppBarFoundation);
 
 /***/ }),
 
-/***/ 113:
+/***/ 116:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return cssClasses; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return strings; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return numbers; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__adapter__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__foundation__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(21);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 /**
- * Copyright 2017 Google Inc. All Rights Reserved.
+ * @license
+ * Copyright 2018 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -828,30 +702,354 @@ var MDCToolbarFoundation = function (_MDCFoundation) {
  * limitations under the License.
  */
 
-var cssClasses = {
-  FIXED: 'mdc-toolbar--fixed',
-  FIXED_LASTROW: 'mdc-toolbar--fixed-lastrow-only',
-  FIXED_AT_LAST_ROW: 'mdc-toolbar--fixed-at-last-row',
-  TOOLBAR_ROW_FLEXIBLE: 'mdc-toolbar--flexible',
-  FLEXIBLE_DEFAULT_BEHAVIOR: 'mdc-toolbar--flexible-default-behavior',
-  FLEXIBLE_MAX: 'mdc-toolbar--flexible-space-maximized',
-  FLEXIBLE_MIN: 'mdc-toolbar--flexible-space-minimized'
-};
 
-var strings = {
-  TITLE_SELECTOR: '.mdc-toolbar__title',
-  ICON_SELECTOR: '.mdc-toolbar__icon',
-  FIRST_ROW_SELECTOR: '.mdc-toolbar__row:first-child',
-  CHANGE_EVENT: 'MDCToolbar:change'
-};
 
-var numbers = {
-  MAX_TITLE_SIZE: 2.125,
-  MIN_TITLE_SIZE: 1.25,
-  TOOLBAR_ROW_HEIGHT: 64,
-  TOOLBAR_ROW_MOBILE_HEIGHT: 56,
-  TOOLBAR_MOBILE_BREAKPOINT: 600
-};
+
+
+/**
+ * @extends {MDCTopAppBarBaseFoundation<!MDCShortTopAppBarFoundation>}
+ * @final
+ */
+
+var MDCShortTopAppBarFoundation = function (_MDCTopAppBarBaseFoun) {
+  _inherits(MDCShortTopAppBarFoundation, _MDCTopAppBarBaseFoun);
+
+  /**
+   * @param {!MDCTopAppBarAdapter} adapter
+   */
+  function MDCShortTopAppBarFoundation(adapter) {
+    _classCallCheck(this, MDCShortTopAppBarFoundation);
+
+    // State variable for the current top app bar state
+    var _this = _possibleConstructorReturn(this, (MDCShortTopAppBarFoundation.__proto__ || Object.getPrototypeOf(MDCShortTopAppBarFoundation)).call(this, adapter));
+
+    _this.isCollapsed = false;
+
+    _this.scrollHandler_ = function () {
+      return _this.shortAppBarScrollHandler_();
+    };
+    return _this;
+  }
+
+  _createClass(MDCShortTopAppBarFoundation, [{
+    key: 'init',
+    value: function init() {
+      _get(MDCShortTopAppBarFoundation.prototype.__proto__ || Object.getPrototypeOf(MDCShortTopAppBarFoundation.prototype), 'init', this).call(this);
+      var isAlwaysCollapsed = this.adapter_.hasClass(__WEBPACK_IMPORTED_MODULE_2__constants__["a" /* cssClasses */].SHORT_COLLAPSED_CLASS);
+
+      if (this.adapter_.getTotalActionItems() > 0) {
+        this.adapter_.addClass(__WEBPACK_IMPORTED_MODULE_2__constants__["a" /* cssClasses */].SHORT_HAS_ACTION_ITEM_CLASS);
+      }
+
+      if (!isAlwaysCollapsed) {
+        this.adapter_.registerScrollHandler(this.scrollHandler_);
+        this.shortAppBarScrollHandler_();
+      }
+    }
+  }, {
+    key: 'destroy',
+    value: function destroy() {
+      _get(MDCShortTopAppBarFoundation.prototype.__proto__ || Object.getPrototypeOf(MDCShortTopAppBarFoundation.prototype), 'destroy', this).call(this);
+      this.adapter_.deregisterScrollHandler(this.scrollHandler_);
+    }
+
+    /**
+     * Scroll handler for applying/removing the collapsed modifier class
+     * on the short top app bar.
+     * @private
+     */
+
+  }, {
+    key: 'shortAppBarScrollHandler_',
+    value: function shortAppBarScrollHandler_() {
+      var currentScroll = this.adapter_.getViewportScrollY();
+
+      if (currentScroll <= 0) {
+        if (this.isCollapsed) {
+          this.adapter_.removeClass(__WEBPACK_IMPORTED_MODULE_2__constants__["a" /* cssClasses */].SHORT_COLLAPSED_CLASS);
+          this.isCollapsed = false;
+        }
+      } else {
+        if (!this.isCollapsed) {
+          this.adapter_.addClass(__WEBPACK_IMPORTED_MODULE_2__constants__["a" /* cssClasses */].SHORT_COLLAPSED_CLASS);
+          this.isCollapsed = true;
+        }
+      }
+    }
+  }]);
+
+  return MDCShortTopAppBarFoundation;
+}(__WEBPACK_IMPORTED_MODULE_1__foundation__["a" /* default */]);
+
+/* harmony default export */ __webpack_exports__["a"] = (MDCShortTopAppBarFoundation);
+
+/***/ }),
+
+/***/ 117:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__adapter__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__foundation__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(21);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * @license
+ * Copyright 2018 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+
+
+
+var INITIAL_VALUE = 0;
+/**
+ * @extends {MDCTopAppBarBaseFoundation<!MDCTopAppBarFoundation>}
+ * @final
+ */
+
+var MDCTopAppBarFoundation = function (_MDCTopAppBarBaseFoun) {
+  _inherits(MDCTopAppBarFoundation, _MDCTopAppBarBaseFoun);
+
+  /**
+   * @param {!MDCTopAppBarAdapter} adapter
+   */
+  function MDCTopAppBarFoundation(adapter) {
+    _classCallCheck(this, MDCTopAppBarFoundation);
+
+    /**
+     * Used for diffs of current scroll position vs previous scroll position
+     * @private {number}
+     */
+    var _this = _possibleConstructorReturn(this, (MDCTopAppBarFoundation.__proto__ || Object.getPrototypeOf(MDCTopAppBarFoundation)).call(this, adapter));
+
+    _this.lastScrollPosition_ = _this.adapter_.getViewportScrollY();
+
+    /**
+     * Used to verify when the top app bar is completely showing or completely hidden
+     * @private {number}
+     */
+    _this.topAppBarHeight_ = _this.adapter_.getTopAppBarHeight();
+
+    /**
+     * wasDocked_ is used to indicate if the top app bar was docked in the previous
+     * scroll handler iteration.
+     * @private {boolean}
+     */
+    _this.wasDocked_ = true;
+
+    /**
+     * isDockedShowing_ is used to indicate if the top app bar is docked in the fully
+     * shown position.
+     * @private {boolean}
+     */
+    _this.isDockedShowing_ = true;
+
+    /**
+     * Variable for current scroll position of the top app bar
+     * @private {number}
+     */
+    _this.currentAppBarOffsetTop_ = 0;
+
+    /**
+     * Used to prevent the top app bar from being scrolled out of view during resize events
+     * @private {boolean} */
+    _this.isCurrentlyBeingResized_ = false;
+
+    /**
+     * The timeout that's used to throttle the resize events
+     * @private {number}
+     */
+    _this.resizeThrottleId_ = INITIAL_VALUE;
+
+    /**
+     * The timeout that's used to debounce toggling the isCurrentlyBeingResized_ variable after a resize
+     * @private {number}
+     */
+    _this.resizeDebounceId_ = INITIAL_VALUE;
+
+    _this.scrollHandler_ = function () {
+      return _this.topAppBarScrollHandler_();
+    };
+    _this.resizeHandler_ = function () {
+      return _this.topAppBarResizeHandler_();
+    };
+    return _this;
+  }
+
+  _createClass(MDCTopAppBarFoundation, [{
+    key: 'init',
+    value: function init() {
+      _get(MDCTopAppBarFoundation.prototype.__proto__ || Object.getPrototypeOf(MDCTopAppBarFoundation.prototype), 'init', this).call(this);
+      this.adapter_.registerScrollHandler(this.scrollHandler_);
+      this.adapter_.registerResizeHandler(this.resizeHandler_);
+    }
+  }, {
+    key: 'destroy',
+    value: function destroy() {
+      _get(MDCTopAppBarFoundation.prototype.__proto__ || Object.getPrototypeOf(MDCTopAppBarFoundation.prototype), 'destroy', this).call(this);
+      this.adapter_.deregisterScrollHandler(this.scrollHandler_);
+      this.adapter_.deregisterResizeHandler(this.resizeHandler_);
+      this.adapter_.setStyle('top', '');
+    }
+
+    /**
+     * Function to determine if the DOM needs to update.
+     * @return {boolean}
+     * @private
+     */
+
+  }, {
+    key: 'checkForUpdate_',
+    value: function checkForUpdate_() {
+      var offscreenBoundaryTop = -this.topAppBarHeight_;
+      var hasAnyPixelsOffscreen = this.currentAppBarOffsetTop_ < 0;
+      var hasAnyPixelsOnscreen = this.currentAppBarOffsetTop_ > offscreenBoundaryTop;
+      var partiallyShowing = hasAnyPixelsOffscreen && hasAnyPixelsOnscreen;
+
+      // If it's partially showing, it can't be docked.
+      if (partiallyShowing) {
+        this.wasDocked_ = false;
+      } else {
+        // Not previously docked and not partially showing, it's now docked.
+        if (!this.wasDocked_) {
+          this.wasDocked_ = true;
+          return true;
+        } else if (this.isDockedShowing_ !== hasAnyPixelsOnscreen) {
+          this.isDockedShowing_ = hasAnyPixelsOnscreen;
+          return true;
+        }
+      }
+
+      return partiallyShowing;
+    }
+
+    /**
+     * Function to move the top app bar if needed.
+     * @private
+     */
+
+  }, {
+    key: 'moveTopAppBar_',
+    value: function moveTopAppBar_() {
+      if (this.checkForUpdate_()) {
+        // Once the top app bar is fully hidden we use the max potential top app bar height as our offset
+        // so the top app bar doesn't show if the window resizes and the new height > the old height.
+        var offset = this.currentAppBarOffsetTop_;
+        if (Math.abs(offset) >= this.topAppBarHeight_) {
+          offset = -__WEBPACK_IMPORTED_MODULE_2__constants__["b" /* numbers */].MAX_TOP_APP_BAR_HEIGHT;
+        }
+
+        this.adapter_.setStyle('top', offset + 'px');
+      }
+    }
+
+    /**
+     * Scroll handler for the default scroll behavior of the top app bar.
+     * @private
+     */
+
+  }, {
+    key: 'topAppBarScrollHandler_',
+    value: function topAppBarScrollHandler_() {
+      var currentScrollPosition = Math.max(this.adapter_.getViewportScrollY(), 0);
+      var diff = currentScrollPosition - this.lastScrollPosition_;
+      this.lastScrollPosition_ = currentScrollPosition;
+
+      // If the window is being resized the lastScrollPosition_ needs to be updated but the
+      // current scroll of the top app bar should stay in the same position.
+      if (!this.isCurrentlyBeingResized_) {
+        this.currentAppBarOffsetTop_ -= diff;
+
+        if (this.currentAppBarOffsetTop_ > 0) {
+          this.currentAppBarOffsetTop_ = 0;
+        } else if (Math.abs(this.currentAppBarOffsetTop_) > this.topAppBarHeight_) {
+          this.currentAppBarOffsetTop_ = -this.topAppBarHeight_;
+        }
+
+        this.moveTopAppBar_();
+      }
+    }
+
+    /**
+     * Top app bar resize handler that throttle/debounce functions that execute updates.
+     * @private
+     */
+
+  }, {
+    key: 'topAppBarResizeHandler_',
+    value: function topAppBarResizeHandler_() {
+      var _this2 = this;
+
+      // Throttle resize events 10 p/s
+      if (!this.resizeThrottleId_) {
+        this.resizeThrottleId_ = setTimeout(function () {
+          _this2.resizeThrottleId_ = INITIAL_VALUE;
+          _this2.throttledResizeHandler_();
+        }, __WEBPACK_IMPORTED_MODULE_2__constants__["b" /* numbers */].DEBOUNCE_THROTTLE_RESIZE_TIME_MS);
+      }
+
+      this.isCurrentlyBeingResized_ = true;
+
+      if (this.resizeDebounceId_) {
+        clearTimeout(this.resizeDebounceId_);
+      }
+
+      this.resizeDebounceId_ = setTimeout(function () {
+        _this2.topAppBarScrollHandler_();
+        _this2.isCurrentlyBeingResized_ = false;
+        _this2.resizeDebounceId_ = INITIAL_VALUE;
+      }, __WEBPACK_IMPORTED_MODULE_2__constants__["b" /* numbers */].DEBOUNCE_THROTTLE_RESIZE_TIME_MS);
+    }
+
+    /**
+     * Throttled function that updates the top app bar scrolled values if the
+     * top app bar height changes.
+     * @private
+     */
+
+  }, {
+    key: 'throttledResizeHandler_',
+    value: function throttledResizeHandler_() {
+      var currentHeight = this.adapter_.getTopAppBarHeight();
+      if (this.topAppBarHeight_ !== currentHeight) {
+        this.wasDocked_ = false;
+
+        // Since the top app bar has a different height depending on the screen width, this
+        // will ensure that the top app bar remains in the correct location if
+        // completely hidden and a resize makes the top app bar a different height.
+        this.currentAppBarOffsetTop_ -= this.topAppBarHeight_ - currentHeight;
+        this.topAppBarHeight_ = currentHeight;
+      }
+      this.topAppBarScrollHandler_();
+    }
+  }]);
+
+  return MDCTopAppBarFoundation;
+}(__WEBPACK_IMPORTED_MODULE_1__foundation__["a" /* default */]);
+
+/* harmony default export */ __webpack_exports__["a"] = (MDCTopAppBarFoundation);
 
 /***/ }),
 
@@ -1014,6 +1212,358 @@ function getNormalizedEventCoords(ev, pageOffset, clientRect) {
 }
 
 
+
+/***/ }),
+
+/***/ 20:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * @license
+ * Copyright 2018 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* eslint no-unused-vars: [2, {"args": "none"}] */
+
+/**
+ * Adapter for MDC Top App Bar
+ *
+ * Defines the shape of the adapter expected by the foundation. Implement this
+ * adapter to integrate the Top App Bar into your framework. See
+ * https://github.com/material-components/material-components-web/blob/master/docs/authoring-components.md
+ * for more information.
+ *
+ * @record
+ */
+var MDCTopAppBarAdapter = function () {
+  function MDCTopAppBarAdapter() {
+    _classCallCheck(this, MDCTopAppBarAdapter);
+  }
+
+  _createClass(MDCTopAppBarAdapter, [{
+    key: "addClass",
+
+    /**
+     * Adds a class to the root Element.
+     * @param {string} className
+     */
+    value: function addClass(className) {}
+
+    /**
+     * Removes a class from the root Element.
+     * @param {string} className
+     */
+
+  }, {
+    key: "removeClass",
+    value: function removeClass(className) {}
+
+    /**
+     * Returns true if the root Element contains the given class.
+     * @param {string} className
+     * @return {boolean}
+     */
+
+  }, {
+    key: "hasClass",
+    value: function hasClass(className) {}
+
+    /**
+     * Sets the specified inline style property on the root Element to the given value.
+     * @param {string} property
+     * @param {string} value
+     */
+
+  }, {
+    key: "setStyle",
+    value: function setStyle(property, value) {}
+
+    /**
+     * Gets the height of the top app bar.
+     * @return {number}
+     */
+
+  }, {
+    key: "getTopAppBarHeight",
+    value: function getTopAppBarHeight() {}
+
+    /**
+     * Registers an event handler on the navigation icon element for a given event.
+     * @param {string} type
+     * @param {function(!Event): undefined} handler
+     */
+
+  }, {
+    key: "registerNavigationIconInteractionHandler",
+    value: function registerNavigationIconInteractionHandler(type, handler) {}
+
+    /**
+     * Deregisters an event handler on the navigation icon element for a given event.
+     * @param {string} type
+     * @param {function(!Event): undefined} handler
+     */
+
+  }, {
+    key: "deregisterNavigationIconInteractionHandler",
+    value: function deregisterNavigationIconInteractionHandler(type, handler) {}
+
+    /**
+     * Emits an event when the navigation icon is clicked.
+     */
+
+  }, {
+    key: "notifyNavigationIconClicked",
+    value: function notifyNavigationIconClicked() {}
+
+    /** @param {function(!Event)} handler */
+
+  }, {
+    key: "registerScrollHandler",
+    value: function registerScrollHandler(handler) {}
+
+    /** @param {function(!Event)} handler */
+
+  }, {
+    key: "deregisterScrollHandler",
+    value: function deregisterScrollHandler(handler) {}
+
+    /** @param {function(!Event)} handler */
+
+  }, {
+    key: "registerResizeHandler",
+    value: function registerResizeHandler(handler) {}
+
+    /** @param {function(!Event)} handler */
+
+  }, {
+    key: "deregisterResizeHandler",
+    value: function deregisterResizeHandler(handler) {}
+
+    /** @return {number} */
+
+  }, {
+    key: "getViewportScrollY",
+    value: function getViewportScrollY() {}
+
+    /** @return {number} */
+
+  }, {
+    key: "getTotalActionItems",
+    value: function getTotalActionItems() {}
+  }]);
+
+  return MDCTopAppBarAdapter;
+}();
+
+/* unused harmony default export */ var _unused_webpack_default_export = (MDCTopAppBarAdapter);
+
+/***/ }),
+
+/***/ 21:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return strings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return cssClasses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return numbers; });
+/**
+ * @license
+ * Copyright 2018 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/** @enum {string} */
+var cssClasses = {
+  FIXED_CLASS: 'mdc-top-app-bar--fixed',
+  FIXED_SCROLLED_CLASS: 'mdc-top-app-bar--fixed-scrolled',
+  SHORT_CLASS: 'mdc-top-app-bar--short',
+  SHORT_HAS_ACTION_ITEM_CLASS: 'mdc-top-app-bar--short-has-action-item',
+  SHORT_COLLAPSED_CLASS: 'mdc-top-app-bar--short-collapsed'
+};
+
+/** @enum {number} */
+var numbers = {
+  DEBOUNCE_THROTTLE_RESIZE_TIME_MS: 100,
+  MAX_TOP_APP_BAR_HEIGHT: 128
+};
+
+/** @enum {string} */
+var strings = {
+  ACTION_ITEM_SELECTOR: '.mdc-top-app-bar__action-item',
+  NAVIGATION_EVENT: 'MDCTopAppBar:nav',
+  NAVIGATION_ICON_SELECTOR: '.mdc-top-app-bar__navigation-icon',
+  ROOT_SELECTOR: '.mdc-top-app-bar',
+  TITLE_SELECTOR: '.mdc-top-app-bar__title'
+};
+
+
+
+/***/ }),
+
+/***/ 23:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__adapter__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_base_foundation__ = __webpack_require__(0);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * @license
+ * Copyright 2018 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+
+
+
+/**
+ * @extends {MDCFoundation<!MDCTopAppBarAdapter>}
+ */
+
+var MDCTopAppBarBaseFoundation = function (_MDCFoundation) {
+  _inherits(MDCTopAppBarBaseFoundation, _MDCFoundation);
+
+  _createClass(MDCTopAppBarBaseFoundation, null, [{
+    key: 'strings',
+
+    /** @return enum {string} */
+    get: function get() {
+      return __WEBPACK_IMPORTED_MODULE_0__constants__["c" /* strings */];
+    }
+
+    /** @return enum {string} */
+
+  }, {
+    key: 'cssClasses',
+    get: function get() {
+      return __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* cssClasses */];
+    }
+
+    /** @return enum {number} */
+
+  }, {
+    key: 'numbers',
+    get: function get() {
+      return __WEBPACK_IMPORTED_MODULE_0__constants__["b" /* numbers */];
+    }
+
+    /**
+     * {@see MDCTopAppBarAdapter} for typing information on parameters and return
+     * types.
+     * @return {!MDCTopAppBarAdapter}
+     */
+
+  }, {
+    key: 'defaultAdapter',
+    get: function get() {
+      return (/** @type {!MDCTopAppBarAdapter} */{
+          hasClass: function hasClass() /* className: string */{},
+          addClass: function addClass() /* className: string */{},
+          removeClass: function removeClass() /* className: string */{},
+          setStyle: function setStyle() /* property: string, value: string */{},
+          getTopAppBarHeight: function getTopAppBarHeight() {},
+          registerNavigationIconInteractionHandler: function registerNavigationIconInteractionHandler() /* type: string, handler: EventListener */{},
+          deregisterNavigationIconInteractionHandler: function deregisterNavigationIconInteractionHandler() /* type: string, handler: EventListener */{},
+          notifyNavigationIconClicked: function notifyNavigationIconClicked() {},
+          registerScrollHandler: function registerScrollHandler() /* handler: EventListener */{},
+          deregisterScrollHandler: function deregisterScrollHandler() /* handler: EventListener */{},
+          registerResizeHandler: function registerResizeHandler() /* handler: EventListener */{},
+          deregisterResizeHandler: function deregisterResizeHandler() /* handler: EventListener */{},
+          getViewportScrollY: function getViewportScrollY() {
+            return (/* number */0
+            );
+          },
+          getTotalActionItems: function getTotalActionItems() {
+            return (/* number */0
+            );
+          }
+        }
+      );
+    }
+
+    /**
+     * @param {!MDCTopAppBarAdapter} adapter
+     */
+
+  }]);
+
+  function MDCTopAppBarBaseFoundation( /** @type {!MDCTopAppBarAdapter} */adapter) {
+    _classCallCheck(this, MDCTopAppBarBaseFoundation);
+
+    var _this = _possibleConstructorReturn(this, (MDCTopAppBarBaseFoundation.__proto__ || Object.getPrototypeOf(MDCTopAppBarBaseFoundation)).call(this, _extends(MDCTopAppBarBaseFoundation.defaultAdapter, adapter)));
+
+    _this.navClickHandler_ = function () {
+      return _this.adapter_.notifyNavigationIconClicked();
+    };
+    return _this;
+  }
+
+  _createClass(MDCTopAppBarBaseFoundation, [{
+    key: 'init',
+    value: function init() {
+      this.adapter_.registerNavigationIconInteractionHandler('click', this.navClickHandler_);
+    }
+  }, {
+    key: 'destroy',
+    value: function destroy() {
+      this.adapter_.deregisterNavigationIconInteractionHandler('click', this.navClickHandler_);
+    }
+  }]);
+
+  return MDCTopAppBarBaseFoundation;
+}(__WEBPACK_IMPORTED_MODULE_2__material_base_foundation__["a" /* default */]);
+
+/* harmony default export */ __webpack_exports__["a"] = (MDCTopAppBarBaseFoundation);
 
 /***/ }),
 
@@ -2262,41 +2812,8 @@ var numbers = {
 
 
 
-/***/ }),
-
-/***/ 7:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__foundation__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(1);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCFoundation", function() { return __WEBPACK_IMPORTED_MODULE_0__foundation__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MDCComponent", function() { return __WEBPACK_IMPORTED_MODULE_1__component__["a"]; });
-/**
- * @license
- * Copyright 2016 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-
-
-
-
-
 /***/ })
 
 /******/ });
 });
-//# sourceMappingURL=mdc.toolbar.js.map
+//# sourceMappingURL=mdc.topAppBar.js.map

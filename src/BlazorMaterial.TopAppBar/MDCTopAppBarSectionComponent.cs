@@ -4,12 +4,12 @@ using System;
 
 namespace BlazorMaterial
 {
-    public class MDCToolbarSectionComponent : BlazorMaterialComponent
+    public class MDCTopAppBarSectionComponent : BlazorMaterialComponent
     {
-        private static readonly ClassBuilder<MDCToolbarSectionComponent> _classNameBuilder;
+        private static readonly ClassBuilder<MDCTopAppBarSectionComponent> _classNameBuilder;
 
         [Parameter]
-        protected MDCToolbarSectionAlignment Alignment { get; set; }
+        protected MDCTopAppBarSectionAlignment Alignment { get; set; }
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
         [Parameter]
@@ -23,17 +23,16 @@ namespace BlazorMaterial
 
         protected string ClassString { get; set; }
 
-        static MDCToolbarSectionComponent()
+        static MDCTopAppBarSectionComponent()
         {
-            _classNameBuilder = new ClassBuilder<MDCToolbarSectionComponent>("mdc", "toolbar__section")
+            _classNameBuilder = new ClassBuilder<MDCTopAppBarSectionComponent>("mdc", "top-app-bar__section")
                 .DefineClass("shrink-to-fit", c => c.ShrinkToFit, PrefixSeparators.Modifier)
-                .DefineClass("align-start", c => c.Alignment == MDCToolbarSectionAlignment.Start, PrefixSeparators.Modifier)
-                .DefineClass("align-end", c => c.Alignment == MDCToolbarSectionAlignment.End, PrefixSeparators.Modifier);
+                .DefineClass(c => $"align-{c.Alignment.ToString().ToLowerInvariant()}", c => true, PrefixSeparators.Modifier);
         }
 
         protected override void OnInit()
         {
-            this.ClassString = _classNameBuilder.Build(this);
+            this.ClassString = _classNameBuilder.Build(this, this.Class);
         }
     }
 }

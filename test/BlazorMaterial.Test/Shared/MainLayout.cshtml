@@ -2,12 +2,12 @@
 @inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
 @inject AppState AppState
 
-<MDCToolbar Style=@MDCToolbarStyle.Fixed>
-    <MDCToolbarRow>
-        <MDCToolbarSection Title=@AppState.Title
-                           Icon=@AppState.ToolbarIcon Alignment=@MDCToolbarSectionAlignment.Start OnIconClick=@{ _ => UriHelper.NavigateTo("/")} />
-    </MDCToolbarRow>
-</MDCToolbar>
-<main class="mdc-toolbar-fixed-adjust">
+<MDCTopAppBar Style=@MDCTopAppBarStyle.Fixed>
+    <MDCTopAppBarRow>
+        <MDCTopAppBarSection Title=@AppState.Title
+                           Icon=@AppState.ToolbarIcon Alignment=@MDCTopAppBarSectionAlignment.Start OnIconClick=@{ _ => UriHelper.NavigateTo("/")} />
+    </MDCTopAppBarRow>
+</MDCTopAppBar>
+<main class="mdc-top-app-bar--fixed-adjust">
     @Body
 </main>

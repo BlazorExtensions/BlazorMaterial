@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazorMaterial.Ripple\BlazorMaterial.Ripple.csproj" />
+    <ProjectReference Include="..\BlazorMaterial.Base\BlazorMaterial.Base.csproj" />
   </ItemGroup>
 
 </Project>

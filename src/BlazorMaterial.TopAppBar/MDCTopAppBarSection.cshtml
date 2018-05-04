@@ -1,17 +1,17 @@
-@inherits MDCToolbarSectionComponent
+@inherits MDCTopAppBarSectionComponent
 
 <section class="@ClassString">
     @if (!string.IsNullOrWhiteSpace(Icon))
     {
         @if (Icon.StartsWith("/"))
         {
-            <span class="mdc-toolbar__menu-icon">
+            <span class="mdc-top-app-bar__navigation-icon">
                 <img src=@Icon>
             </span>
         }
         else
         {
-            <button onclick="@OnIconClick" class="material-icons mdc-toolbar__menu-icon">@Icon</button>
+            <button onclick="@OnIconClick" class="material-icons mdc-top-app-bar__navigation-icon">@Icon</button>
         }
     }
     @if (!string.IsNullOrWhiteSpace(Title))
