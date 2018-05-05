@@ -74,6 +74,18 @@ namespace BlazorMaterial
             
         }
 
+        public ClassBuilder<T> DefineClass(Func<T, string> valueAccessor, PrefixSeparators prefixSeparator = PrefixSeparators.Dash)
+        {
+            if (valueAccessor == null)
+            {
+                throw new ArgumentNullException(nameof(valueAccessor));
+            }
+
+            this.classDefinitions.Add((this._classNamePrefix, valueAccessor, c => true, GetPrefixSeparator(prefixSeparator)));
+
+            return this;
+        }
+
         public ClassBuilder<T> DefineClass(Func<T, string> valueAccessor, Func<T, bool> predicate = default, PrefixSeparators prefixSeparator = PrefixSeparators.Dash)
         {
             if (valueAccessor == null)

@@ -27,7 +27,7 @@ namespace BlazorMaterial
         {
             _classNameBuilder = new ClassBuilder<MDCTopAppBarSectionComponent>("mdc", "top-app-bar__section")
                 .DefineClass("shrink-to-fit", c => c.ShrinkToFit, PrefixSeparators.Modifier)
-                .DefineClass(c => $"align-{c.Alignment.ToString().ToLowerInvariant()}", c => true, PrefixSeparators.Modifier);
+                .DefineClass(c => $"align-{c.Alignment.ToString().ToLowerInvariant()}", PrefixSeparators.Modifier);
         }
 
         protected override void OnInit()

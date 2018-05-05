@@ -391,5 +391,3 @@ a.mdc-list-item {
   color: rgba(0, 0, 0, 0.87);
   /* @alternate */
   color: var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87)); }
-
-/*# sourceMappingURL=mdc.list.css.map*/

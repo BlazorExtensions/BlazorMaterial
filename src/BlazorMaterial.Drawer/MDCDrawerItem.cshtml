@@ -1,0 +1,15 @@
+@inherits MDCDrawerItemComponent
+
+<a class=@ClassString href=@HRef>
+
+    @if (Icon.StartsWith("/"))
+    {
+        <span class="mdc-list-item__graphic">
+            <img src=@Icon width="@Width" height="@Height">@Text
+        </span>
+    }
+    else
+    {
+        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">@Icon</i>@Text
+    }
+</a>

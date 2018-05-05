@@ -1,0 +1,28 @@
+@page "/drawer"
+@inject AppState AppState
+@implements IDisposable
+
+<MDCDrawer Class="demo-drawer" Type="@MDCDrawerType.Permanent">
+    <MDCDrawerSpacer />
+    <MDCDrawerContent>
+        <MDCDrawerItemGroup>
+            <MDCDrawerItem Class="demo-drawer-list-item" Icon="inbox" />Inbox
+            <MDCDrawerItem Class="demo-drawer-list-item" Icon="star" />Star
+        </MDCDrawerItemGroup>
+    </MDCDrawerContent>
+</MDCDrawer>
+
+@functions{
+
+    protected override void OnInit()
+    {
+        AppState.Title = "Drawer";
+        AppState.ToolbarIcon = "arrow_back";
+        AppState.ShowTopAppBar = false;
+    }
+
+    public void Dispose()
+    {
+        AppState.ShowTopAppBar = true;
+    }
+}

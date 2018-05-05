@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\BlazorMaterial.Button\BlazorMaterial.Button.csproj" />
+    <ProjectReference Include="..\..\src\BlazorMaterial.Drawer\BlazorMaterial.Drawer.csproj" />
     <ProjectReference Include="..\..\src\BlazorMaterial.Lists\BlazorMaterial.Lists.csproj" />
     <ProjectReference Include="..\..\src\BlazorMaterial.Theme\BlazorMaterial.Theme.csproj" />
     <ProjectReference Include="..\..\src\BlazorMaterial.TopAppBar\BlazorMaterial.TopAppBar.csproj" />

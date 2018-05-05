@@ -2,12 +2,32 @@
 @inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
 @inject AppState AppState
 
-<MDCTopAppBar Style=@MDCTopAppBarStyle.Fixed>
-    <MDCTopAppBarRow>
-        <MDCTopAppBarSection Title=@AppState.Title
-                           Icon=@AppState.ToolbarIcon Alignment=@MDCTopAppBarSectionAlignment.Start OnIconClick=@{ _ => UriHelper.NavigateTo("/")} />
-    </MDCTopAppBarRow>
-</MDCTopAppBar>
-<main class="mdc-top-app-bar--fixed-adjust">
-    @Body
-</main>
+<div class="mdc-typography">
+    @if (showTopBar)
+    {
+        <MDCTopAppBar Style=@MDCTopAppBarStyle.Fixed>
+            <MDCTopAppBarRow>
+                <MDCTopAppBarSection Title=@AppState.Title
+                                     Icon=@AppState.ToolbarIcon
+                                     Alignment=@MDCTopAppBarSectionAlignment.Start
+                                     OnIconClick=@{ _ => UriHelper.NavigateTo("/")} />
+            </MDCTopAppBarRow>
+        </MDCTopAppBar>
+    }
+    <main class="mdc-top-app-bar--fixed-adjust">
+        @Body
+    </main>
+</div>
+
+@functions{
+    private bool showTopBar = true;
+
+    protected override void OnInit()
+    {   
+        UriHelper.OnLocationChanged += (s, a) =>
+        {
+            showTopBar = !a.Contains("drawer");
+            StateHasChanged();
+        };
+    }
+}

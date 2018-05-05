@@ -1,0 +1,8 @@
+@inherits MDCDrawerComponent
+
+@if (Type == MDCDrawerType.Permanent)
+{
+    <nav ref="_MDCDrawer" class=@($"{ClassString} mdc-typography")>
+        @ChildContent
+    </nav>
+}

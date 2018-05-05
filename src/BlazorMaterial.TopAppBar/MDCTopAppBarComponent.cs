@@ -1,4 +1,3 @@
-using System;
 using Microsoft.AspNetCore.Blazor;
 using Microsoft.AspNetCore.Blazor.Browser.Interop;
 using Microsoft.AspNetCore.Blazor.Components;
@@ -24,7 +23,7 @@ namespace BlazorMaterial
         static MDCTopAppBarComponent()
         {
             _classNameBuilder = new ClassBuilder<MDCTopAppBarComponent>("mdc", "top-app-bar")
-                .DefineClass((c) => GetStyle(c.Style), c => true, PrefixSeparators.Modifier);
+                .DefineClass((c) => GetStyle(c.Style), PrefixSeparators.Modifier);
         }
 
         private static string GetStyle(MDCTopAppBarStyle style)

@@ -1760,4 +1760,3 @@ var numbers = {
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=mdc.ripple.js.map
