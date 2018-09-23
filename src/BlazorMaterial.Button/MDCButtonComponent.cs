@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Blazor;
-using Microsoft.AspNetCore.Blazor.Browser.Interop;
 using Microsoft.AspNetCore.Blazor.Components;
+using Microsoft.JSInterop;
 using System;
 
 namespace BlazorMaterial
 {
     public class MDCButtonComponent : BlazorMaterialComponent
     {
-        private const string ADD_RIPPLE_FUNCTION = "BlazorMaterial.AddRipple";
+        private const string ADD_RIPPLE_FUNCTION = "BlazorMaterialAddRipple";
         private static readonly ClassBuilder<MDCButtonComponent> _classNameBuilder;
 
         [Parameter]
@@ -60,7 +60,7 @@ namespace BlazorMaterial
             if (this._isFirstRender)
             {
                 this._isFirstRender = false;
-                RegisteredFunction.Invoke<bool>(ADD_RIPPLE_FUNCTION, this._MDCButton);
+                JSRuntime.Current.InvokeAsync<bool>(ADD_RIPPLE_FUNCTION, this._MDCButton);
             }
         }
     }

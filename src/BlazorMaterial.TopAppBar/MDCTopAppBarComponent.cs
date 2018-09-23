@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Blazor;
-using Microsoft.AspNetCore.Blazor.Browser.Interop;
 using Microsoft.AspNetCore.Blazor.Components;
+using Microsoft.JSInterop;
 
 namespace BlazorMaterial
 {
     public class MDCTopAppBarComponent : BlazorMaterialComponent
     {
-        private const string ATTACH_FUNCTION = "BlazorMaterial.TopAppBar.AttachTo";
+        private const string ATTACH_FUNCTION = "BlazorMaterialTopAppBarAttachTo";
         private static readonly ClassBuilder<MDCTopAppBarComponent> _classNameBuilder;
 
         [Parameter]
@@ -53,7 +53,7 @@ namespace BlazorMaterial
             if (this._isFirstRender)
             {
                 this._isFirstRender = false;
-                RegisteredFunction.Invoke<bool>(ATTACH_FUNCTION, this._MDCTopAppBar);
+                JSRuntime.Current.InvokeAsync<bool>(ATTACH_FUNCTION, this._MDCTopAppBar);
             }
         }
     }

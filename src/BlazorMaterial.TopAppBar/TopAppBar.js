@@ -1,4 +1,4 @@
-Blazor.registerFunction('BlazorMaterial.TopAppBar.AttachTo', function (topAppBar) {
+function BlazorMaterialTopAppBarAttachTo(topAppBar) {
   mdc.topAppBar.MDCTopAppBar.attachTo(topAppBar);
   return true;
-});
+}

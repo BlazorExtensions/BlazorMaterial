@@ -1,4 +1,4 @@
-Blazor.registerFunction('BlazorMaterial.AddRipple', function (button) {
+function BlazorMaterialAddRipple(button) {
   mdc.ripple.MDCRipple.attachTo(button);
   return true;
-});
+}

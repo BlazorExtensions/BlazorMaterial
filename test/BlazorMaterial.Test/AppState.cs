@@ -1,4 +1,4 @@
-namespace BlazorMaterial.Test
+﻿namespace BlazorMaterial.Test
 {
     public class AppState
     {

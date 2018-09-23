@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Blazor;
-using Microsoft.AspNetCore.Blazor.Browser.Interop;
+using Microsoft.JSInterop;
 using Microsoft.AspNetCore.Blazor.Components;
 
 namespace BlazorMaterial
 {
     public class MDCDrawerComponent : BlazorMaterialComponent
     {
-        private const string ATTACH_FUNCTION = "BlazorMaterial.Drawer.AttachTo";
+        private const string ATTACH_FUNCTION = "BlazorMaterialDrawerAttachTo";
         private static readonly ClassBuilder<MDCDrawerComponent> _classNameBuilder;
 
         [Parameter]
@@ -40,7 +40,8 @@ namespace BlazorMaterial
                 if (this.Type != MDCDrawerType.Permanent)
                 {
                     var persistent = this.Type == MDCDrawerType.Persistent;
-                    RegisteredFunction.Invoke<bool>(ATTACH_FUNCTION, this._MDCDrawer, persistent);
+                    
+                    JSRuntime.Current.InvokeAsync<bool>(ATTACH_FUNCTION, this._MDCDrawer, persistent);
                 }
             }
         }
