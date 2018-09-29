@@ -6,7 +6,9 @@ namespace BlazorMaterial
 {
     public class MDCDrawerComponent : BlazorMaterialComponent
     {
-        private const string ATTACH_FUNCTION = "BlazorMaterialDrawerAttachTo";
+        private const string ATTACH_PERSIST_DRAWER_FUNCTION = "mdc.drawer.MDCPersistentDrawer.attachTo";
+        private const string ATTACH_TEMPORARY_DRAWER_FUNCTION = "mdc.drawer.MDCTemporaryDrawer.attachTo";
+
         private static readonly ClassBuilder<MDCDrawerComponent> _classNameBuilder;
 
         [Parameter]
@@ -39,9 +41,14 @@ namespace BlazorMaterial
 
                 if (this.Type != MDCDrawerType.Permanent)
                 {
-                    var persistent = this.Type == MDCDrawerType.Persistent;
-                    
-                    JSRuntime.Current.InvokeAsync<bool>(ATTACH_FUNCTION, this._MDCDrawer, persistent);
+                    if (this.Type == MDCDrawerType.Persistent)
+                    {
+                        JSRuntime.Current.InvokeAsync<bool>(ATTACH_PERSIST_DRAWER_FUNCTION, this._MDCDrawer);
+                    }
+                    else
+                    {
+                        JSRuntime.Current.InvokeAsync<bool>(ATTACH_TEMPORARY_DRAWER_FUNCTION, this._MDCDrawer);
+                    }
                 }
             }
         }

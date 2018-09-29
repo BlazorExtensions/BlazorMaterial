@@ -7,7 +7,7 @@ namespace BlazorMaterial
 {
     public class MDCButtonComponent : BlazorMaterialComponent
     {
-        private const string ADD_RIPPLE_FUNCTION = "BlazorMaterialAddRipple";
+        private const string ADD_RIPPLE_FUNCTION = "mdc.ripple.MDCRipple.attachTo";
         private static readonly ClassBuilder<MDCButtonComponent> _classNameBuilder;
 
         [Parameter]

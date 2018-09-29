@@ -6,7 +6,7 @@ namespace BlazorMaterial
 {
     public class MDCTopAppBarComponent : BlazorMaterialComponent
     {
-        private const string ATTACH_FUNCTION = "BlazorMaterialTopAppBarAttachTo";
+        private const string ATTACH_FUNCTION = "mdc.topAppBar.MDCTopAppBar.attachTo";
         private static readonly ClassBuilder<MDCTopAppBarComponent> _classNameBuilder;
 
         [Parameter]
