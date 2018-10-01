@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Blazor;
 using Microsoft.AspNetCore.Blazor.Components;
 using Microsoft.JSInterop;
+using System.Threading.Tasks;
 
 namespace BlazorMaterial
 {
@@ -48,12 +49,12 @@ namespace BlazorMaterial
             this.ClassString = _classNameBuilder.Build(this, this.Class);
         }
 
-        protected override void OnAfterRender()
+        protected override async Task OnAfterRenderAsync()
         {
             if (this._isFirstRender)
             {
                 this._isFirstRender = false;
-                JSRuntime.Current.InvokeAsync<bool>(ATTACH_FUNCTION, this._MDCTopAppBar);
+                await JSRuntime.Current.InvokeAsync<bool>(ATTACH_FUNCTION, this._MDCTopAppBar);
             }
         }
     }
