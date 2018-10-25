@@ -81,7 +81,7 @@ namespace BlazorMaterial
                 throw new ArgumentNullException(nameof(valueAccessor));
             }
 
-            this.classDefinitions.Add((this._classNamePrefix, valueAccessor, c => true, GetPrefixSeparator(prefixSeparator)));
+            this.classDefinitions.Add((this._classNamePrefix, valueAccessor, c => true, this.GetPrefixSeparator(prefixSeparator)));
 
             return this;
         }
@@ -93,7 +93,7 @@ namespace BlazorMaterial
                 throw new ArgumentNullException(nameof(valueAccessor));
             }
 
-            this.classDefinitions.Add((this._classNamePrefix, valueAccessor, predicate, GetPrefixSeparator(prefixSeparator)));
+            this.classDefinitions.Add((this._classNamePrefix, valueAccessor, predicate, this.GetPrefixSeparator(prefixSeparator)));
 
             return this;
         }
@@ -109,7 +109,7 @@ namespace BlazorMaterial
             // Add class separator here, since this definition has no dynamic parts.
             //
 
-            this.classDefinitions.Add(($"{this._classNamePrefix}{GetPrefixSeparator(prefixSeparator)}{value}{ClassNameSeparator}", default, predicate, string.Empty));
+            this.classDefinitions.Add(($"{this._classNamePrefix}{this.GetPrefixSeparator(prefixSeparator)}{value}{ClassNameSeparator}", default, predicate, string.Empty));
 
             return this;
         }
