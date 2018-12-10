@@ -1,12 +1,15 @@
 using Microsoft.AspNetCore.Blazor;
-using Microsoft.AspNetCore.Blazor.Browser.Interop;
+using Microsoft.JSInterop;
 using Microsoft.AspNetCore.Blazor.Components;
+using System.Threading.Tasks;
 
 namespace BlazorMaterial
 {
     public class MDCDrawerComponent : BlazorMaterialComponent
     {
-        private const string ATTACH_FUNCTION = "BlazorMaterial.Drawer.AttachTo";
+        private const string ATTACH_PERSIST_DRAWER_FUNCTION = "mdc.drawer.MDCPersistentDrawer.attachTo";
+        private const string ATTACH_TEMPORARY_DRAWER_FUNCTION = "mdc.drawer.MDCTemporaryDrawer.attachTo";
+
         private static readonly ClassBuilder<MDCDrawerComponent> _classNameBuilder;
 
         [Parameter]
@@ -31,7 +34,7 @@ namespace BlazorMaterial
             this.ClassString = _classNameBuilder.Build(this, this.Class);
         }
 
-        protected override void OnAfterRender()
+        protected override async Task OnAfterRenderAsync()
         {
             if (this._isFirstRender)
             {
@@ -39,8 +42,14 @@ namespace BlazorMaterial
 
                 if (this.Type != MDCDrawerType.Permanent)
                 {
-                    var persistent = this.Type == MDCDrawerType.Persistent;
-                    RegisteredFunction.Invoke<bool>(ATTACH_FUNCTION, this._MDCDrawer, persistent);
+                    if (this.Type == MDCDrawerType.Persistent)
+                    {
+                        await JSRuntime.Current.InvokeAsync<bool>(ATTACH_PERSIST_DRAWER_FUNCTION, this._MDCDrawer);
+                    }
+                    else
+                    {
+                        await JSRuntime.Current.InvokeAsync<bool>(ATTACH_TEMPORARY_DRAWER_FUNCTION, this._MDCDrawer);
+                    }
                 }
             }
         }

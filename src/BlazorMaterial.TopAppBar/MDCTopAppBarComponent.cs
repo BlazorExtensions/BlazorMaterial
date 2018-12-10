@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Blazor;
-using Microsoft.AspNetCore.Blazor.Browser.Interop;
 using Microsoft.AspNetCore.Blazor.Components;
+using Microsoft.JSInterop;
+using System.Threading.Tasks;
 
 namespace BlazorMaterial
 {
     public class MDCTopAppBarComponent : BlazorMaterialComponent
     {
-        private const string ATTACH_FUNCTION = "BlazorMaterial.TopAppBar.AttachTo";
+        private const string ATTACH_FUNCTION = "mdc.topAppBar.MDCTopAppBar.attachTo";
         private static readonly ClassBuilder<MDCTopAppBarComponent> _classNameBuilder;
 
         [Parameter]
@@ -48,12 +49,12 @@ namespace BlazorMaterial
             this.ClassString = _classNameBuilder.Build(this, this.Class);
         }
 
-        protected override void OnAfterRender()
+        protected override async Task OnAfterRenderAsync()
         {
             if (this._isFirstRender)
             {
                 this._isFirstRender = false;
-                RegisteredFunction.Invoke<bool>(ATTACH_FUNCTION, this._MDCTopAppBar);
+                await JSRuntime.Current.InvokeAsync<bool>(ATTACH_FUNCTION, this._MDCTopAppBar);
             }
         }
     }

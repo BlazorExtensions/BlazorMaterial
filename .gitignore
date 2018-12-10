@@ -7,3 +7,5 @@ bin/
 dist
 obj
 *.user
+*/**/Properties/launchSettings.json
+*/**/global.json
