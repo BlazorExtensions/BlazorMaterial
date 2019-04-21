@@ -1,5 +1,4 @@
-using Microsoft.AspNetCore.Blazor;
-using Microsoft.AspNetCore.Blazor.Components;
+using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System;
 using System.Threading.Tasks;
@@ -61,7 +60,7 @@ namespace BlazorMaterial
             if (this._isFirstRender)
             {
                 this._isFirstRender = false;
-                await JSRuntime.Current.InvokeAsync<bool>(ADD_RIPPLE_FUNCTION, this._MDCButton);
+                await this.JSRuntime.InvokeAsync<bool>(ADD_RIPPLE_FUNCTION, this._MDCButton);
             }
         }
     }

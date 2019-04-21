@@ -1,6 +1,6 @@
 @page "/"
 @inject AppState AppState
-@inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
+@inject Microsoft.AspNetCore.Blazor.Services.WebAssemblyUriHelper UriHelper
 
 <MDCList TwoLine="true">
     <MDCListItem OnClick=@{ _ => UriHelper.NavigateTo("/button")}>
