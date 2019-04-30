@@ -1,17 +1,17 @@
 @page "/"
 @inject AppState AppState
-@inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
+@inject IUriHelper UriHelper
 
 <MDCList TwoLine="true">
-    <MDCListItem OnClick=@{ _ => UriHelper.NavigateTo("/button")}>
+    <MDCListItem OnClick=@( _ => UriHelper.NavigateTo("/button"))>
         <MDCListItemGraphic Type=@MDCListItemGraphicType.Image Graphic="/images/ic_button_24px.svg" />
         <MDCListItemContent PrimaryText="Button" SecondaryText="Raised and flat buttons" />
     </MDCListItem>
-    <MDCListItem OnClick=@{ _ => UriHelper.NavigateTo("/list")}>
+    <MDCListItem OnClick=@( _ => UriHelper.NavigateTo("/list"))>
         <MDCListItemGraphic Type=@MDCListItemGraphicType.Image Graphic="/images/ic_list_24px.svg" />
         <MDCListItemContent PrimaryText="List" SecondaryText="Item layouts in lists" />
     </MDCListItem>
-    <MDCListItem OnClick=@{ _ => UriHelper.NavigateTo("/drawer")}>
+    <MDCListItem OnClick=@( _ => UriHelper.NavigateTo("/drawer"))>
         <MDCListItemGraphic Type=@MDCListItemGraphicType.Image Graphic="/images/ic_side_navigation_24px.svg" />
         <MDCListItemContent PrimaryText="Drawer" SecondaryText="Various drawer styles" />
     </MDCListItem>

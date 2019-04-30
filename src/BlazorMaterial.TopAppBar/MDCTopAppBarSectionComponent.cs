@@ -1,5 +1,4 @@
-using Microsoft.AspNetCore.Blazor;
-using Microsoft.AspNetCore.Blazor.Components;
+using Microsoft.AspNetCore.Components;
 using System;
 
 namespace BlazorMaterial
@@ -19,7 +18,7 @@ namespace BlazorMaterial
         [Parameter]
         protected string Title { get; set; }
         [Parameter]
-        protected Action<UIMouseEventArgs> OnIconClick { get; set; }
+        protected EventCallback<UIMouseEventArgs> OnIconClick { get; set; }
 
         protected string ClassString { get; set; }
 

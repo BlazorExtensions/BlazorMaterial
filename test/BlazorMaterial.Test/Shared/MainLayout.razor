@@ -1,5 +1,5 @@
-@inherits BlazorLayoutComponent
-@inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
+@inherits LayoutComponentBase
+@inject IUriHelper UriHelper
 @inject AppState AppState
 
 <div class="mdc-typography">
@@ -10,7 +10,7 @@
                 <MDCTopAppBarSection Title=@AppState.Title
                                      Icon=@AppState.ToolbarIcon
                                      Alignment=@MDCTopAppBarSectionAlignment.Start
-                                     OnIconClick=@{ _ => UriHelper.NavigateTo("/")} />
+                                     OnIconClick=@( _ => UriHelper.NavigateTo("/") ) />
             </MDCTopAppBarRow>
         </MDCTopAppBar>
     }
@@ -23,7 +23,7 @@
     private bool showTopBar = true;
 
     protected override void OnInit()
-    {   
+    {
         UriHelper.OnLocationChanged += (s, a) =>
         {
             showTopBar = !a.Contains("drawer");

@@ -1,5 +1,4 @@
-@using Microsoft.AspNetCore.Blazor;
-@using Microsoft.AspNetCore.Blazor.Components;
+@using Microsoft.AspNetCore.Components;
 @inherits BlazorMaterialComponent
 
 <li class=@( $"mdc-list-item {Class} {_dividerClass}" ) onclick="@OnClick">
@@ -8,7 +7,7 @@
 
 @functions{
     [Parameter]
-    private Action<UIMouseEventArgs> OnClick { get; set; }
+    private EventCallback<UIMouseEventArgs> OnClick { get; set; }
     [Parameter]
     private bool Divider { get; set; }
     [Parameter]

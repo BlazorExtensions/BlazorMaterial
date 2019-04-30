@@ -1,5 +1,4 @@
-using Microsoft.AspNetCore.Blazor;
-using Microsoft.AspNetCore.Blazor.Components;
+using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System;
 using System.Threading.Tasks;
@@ -16,17 +15,17 @@ namespace BlazorMaterial
         [Parameter]
         protected MDCButtonStyle Style { get; set; }
         [Parameter]
-        protected Action<UIMouseEventArgs> OnClick { get; set; }
+        protected EventCallback<UIMouseEventArgs> OnClick { get; set; }
         [Parameter]
-        protected Action<UIMouseEventArgs> OnMouseUp { get; set; }
+        protected EventCallback<UIMouseEventArgs> OnMouseUp { get; set; }
         [Parameter]
-        protected Action<UIMouseEventArgs> OnMouseDown { get; set; }
+        protected EventCallback<UIMouseEventArgs> OnMouseDown { get; set; }
         [Parameter]
-        protected Action<UIKeyboardEventArgs> OnKeyPress { get; set; }
+        protected EventCallback<UIKeyboardEventArgs> OnKeyPress { get; set; }
         [Parameter]
-        protected Action<UIKeyboardEventArgs> OnKeyDown { get; set; }
+        protected EventCallback<UIKeyboardEventArgs> OnKeyDown { get; set; }
         [Parameter]
-        protected Action<UIKeyboardEventArgs> OnKeyUp { get; set; }
+        protected EventCallback<UIKeyboardEventArgs> OnKeyUp { get; set; }
         [Parameter]
         protected string Icon { get; set; }
         [Parameter]
@@ -61,7 +60,7 @@ namespace BlazorMaterial
             if (this._isFirstRender)
             {
                 this._isFirstRender = false;
-                await JSRuntime.Current.InvokeAsync<bool>(ADD_RIPPLE_FUNCTION, this._MDCButton);
+                await this.JSRuntime.InvokeAsync<bool>(ADD_RIPPLE_FUNCTION, this._MDCButton);
             }
         }
     }

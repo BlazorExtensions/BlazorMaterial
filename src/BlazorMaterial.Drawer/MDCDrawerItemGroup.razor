@@ -1,12 +1,12 @@
-@using Microsoft.AspNetCore.Blazor;
-@using Microsoft.AspNetCore.Blazor.Components;
+@using Microsoft.AspNetCore.Components
 @inherits BlazorMaterialComponent
 
-<div class=@( $"mdc-list-group {Class}" )>
+<nav class=@( $"mdc-list {Class}" )>
     @ChildContent
-</div>
+</nav>
 
 @functions{
     [Parameter]
     private RenderFragment ChildContent { get; set; }
 }
+
